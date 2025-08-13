@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/beemonitor.bin'
+elf = 'build/beemonitor.elf'
