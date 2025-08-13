@@ -1,0 +1,36 @@
+esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_clock_loader.c.obj: \
+ /home/frank/Projects/beemonitor/esp-idf/components/bootloader_support/src/bootloader_clock_loader.c \
+ /home/frank/Projects/beemonitor/esp-idf/components/esp_hw_support/port/esp32s3/include/soc/rtc.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.1.0/include/stdbool.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.1.0/include/stddef.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.1.0/include/stdint.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/stdint.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/machine/_default_types.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/sys/features.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/_newlib_version.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/sys/_intsup.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/sys/_stdint.h \
+ /home/frank/Projects/beemonitor/esp-idf/components/soc/esp32s3/include/soc/soc.h \
+ /home/frank/Projects/beemonitor/esp-idf/components/esp_common/include/esp_assert.h \
+ /home/frank/Projects/beemonitor/esp-idf/components/newlib/platform_include/assert.h \
+ /home/frank/Projects/beemonitor/beemonitor/build/bootloader/config/sdkconfig.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/stdlib.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/machine/ieeefp.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/_ansi.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/newlib.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/sys/config.h \
+ /home/frank/Projects/beemonitor/esp-idf/components/newlib/platform_include/sys/reent.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/sys/reent.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/_ansi.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/sys/cdefs.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/sys/_types.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/machine/_types.h \
+ /home/frank/Projects/beemonitor/esp-idf/components/newlib/platform_include/sys/lock.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/sys/lock.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/machine/stdlib.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/alloca.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/sys/_locale.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/assert.h \
+ /home/frank/Projects/beemonitor/esp-idf/components/esp_common/include/esp_bit_defs.h \
+ /home/frank/Projects/beemonitor/esp-idf/components/soc/esp32s3/register/soc/reg_base.h \
+ /home/frank/Projects/beemonitor/esp-idf/components/soc/esp32s3/include/soc/clk_tree_defs.h

@@ -1,0 +1,33 @@
+esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/memory_planner/linear_memory_planner.cc.obj: \
+ /home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/micro/memory_planner/linear_memory_planner.cc \
+ /home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/micro/memory_planner/linear_memory_planner.h \
+ /home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/micro/compatibility.h \
+ /home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/micro/memory_planner/micro_memory_planner.h \
+ /home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/c/common.h \
+ /home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/core/c/common.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.1.0/include/stdarg.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.1.0/include/stdbool.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.1.0/include/stddef.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.1.0/include/stdint.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/stdint.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/machine/_default_types.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/sys/features.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/_newlib_version.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/sys/_intsup.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/sys/_stdint.h \
+ /home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/core/c/c_api_types.h \
+ /home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/compiler/mlir/lite/core/c/tflite_types.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/c++/15.1.0/utility \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/c++/15.1.0/xtensa-esp-elf/esp32s3/no-rtti/bits/c++config.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/c++/15.1.0/xtensa-esp-elf/esp32s3/no-rtti/bits/os_defines.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/c++/15.1.0/xtensa-esp-elf/esp32s3/no-rtti/bits/cpu_defines.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/c++/15.1.0/bits/stl_relops.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/c++/15.1.0/bits/stl_pair.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/c++/15.1.0/type_traits \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/c++/15.1.0/bits/version.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/c++/15.1.0/bits/move.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/c++/15.1.0/bits/utility.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/c++/15.1.0/initializer_list \
+ /home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/micro/micro_log.h \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/c++/15.1.0/cstdarg \
+ /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/xtensa-esp-elf/include/c++/15.1.0/cstddef

@@ -1,0 +1,46 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### Added
+- Implemented OLED display support using the U8g2 library to show bee counts.
+- Integrated Wi-Fi, HTTP client, and deep-sleep functionality into the main application.
+- Storing bee counts in RTC memory to persist across deep sleep cycles.
+
+### Fixed
+- Resolved the "app partition is too small" build error by correcting the flash size in `sdkconfig`.
+- Fixed various compiler warnings related to missing struct initializers.
+- Fixed linker errors when compiling C++ code with C libraries by adding `extern "C"` guards.
+
+## [0.3.0] - 2025-08-12
+
+### Added
+- Integrated the TensorFlow Lite Micro component.
+- Added a placeholder person detection model.
+- Implemented the basic C++ structure for camera capture and TFLM inference.
+
+### Changed
+- Converted the main application file from C to C++ (`beemonitor.cpp`).
+
+### Fixed
+- Resolved all compilation errors related to component dependencies and C++ compilation.
+
+## [0.2.0] - 2025-08-12
+
+### Added
+- Implemented the "Data Collector" firmware.
+    - Initializes the camera and starts a Wi-Fi AP.
+    - Streams video via a simple web server to allow for dataset capture.
+
+## [0.1.0] - 2025-08-12
+
+### Added
+- Created `GEMINI.md` with project specifications.
+- Created `TODO.md` to track project tasks.
+- Created `CHANGELOG.md` to track project history.
+- Installed and configured the ESP-IDF development environment.

@@ -1,0 +1,290 @@
+Command: make -j 14 all
+Configuration Report               
+ ───────────────────────────────── 
+   Parser Version: 1               
+   Verbosity: default              
+   Status: Finished successfully   
+                                   
+ ───────────────────────────────── 
+In file included from /home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:20,
+                 from /home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:7:
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c: In function 'wifi_event_handler':
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:158:33: error: expected ')' before 'MACSTR'
+  158 |         ESP_LOGI(TAG, "station "MACSTR" join, AID=%d",
+      |                                 ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log_format.h:15:88: note: in definition of macro 'LOG_FORMAT'
+   15 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                                                        ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:158:9: note: in expansion of macro 'ESP_LOGI'
+  158 |         ESP_LOGI(TAG, "station "MACSTR" join, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:220:72: note: to match this '('
+  220 |         if (ESP_LOG_GET_LEVEL(configs)==ESP_LOG_ERROR)        { esp_log(ESP_LOG_CONFIG_INIT(ESP_LOG_ERROR),   tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                        ^
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:158:9: note: in expansion of macro 'ESP_LOGI'
+  158 |         ESP_LOGI(TAG, "station "MACSTR" join, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:158:33: error: expected ')' before 'MACSTR'
+  158 |         ESP_LOGI(TAG, "station "MACSTR" join, AID=%d",
+      |                                 ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log_format.h:15:88: note: in definition of macro 'LOG_FORMAT'
+   15 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                                                        ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:158:9: note: in expansion of macro 'ESP_LOGI'
+  158 |         ESP_LOGI(TAG, "station "MACSTR" join, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:221:72: note: to match this '('
+  221 |         else if (ESP_LOG_GET_LEVEL(configs)==ESP_LOG_WARN)    { esp_log(ESP_LOG_CONFIG_INIT(ESP_LOG_WARN),    tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                        ^
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:158:9: note: in expansion of macro 'ESP_LOGI'
+  158 |         ESP_LOGI(TAG, "station "MACSTR" join, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:158:33: error: expected ')' before 'MACSTR'
+  158 |         ESP_LOGI(TAG, "station "MACSTR" join, AID=%d",
+      |                                 ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log_format.h:15:88: note: in definition of macro 'LOG_FORMAT'
+   15 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                                                        ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:158:9: note: in expansion of macro 'ESP_LOGI'
+  158 |         ESP_LOGI(TAG, "station "MACSTR" join, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:222:72: note: to match this '('
+  222 |         else if (ESP_LOG_GET_LEVEL(configs)==ESP_LOG_DEBUG)   { esp_log(ESP_LOG_CONFIG_INIT(ESP_LOG_DEBUG),   tag, LOG_FORMAT(D, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                        ^
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:158:9: note: in expansion of macro 'ESP_LOGI'
+  158 |         ESP_LOGI(TAG, "station "MACSTR" join, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:158:33: error: expected ')' before 'MACSTR'
+  158 |         ESP_LOGI(TAG, "station "MACSTR" join, AID=%d",
+      |                                 ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log_format.h:15:88: note: in definition of macro 'LOG_FORMAT'
+   15 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                                                        ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:158:9: note: in expansion of macro 'ESP_LOGI'
+  158 |         ESP_LOGI(TAG, "station "MACSTR" join, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:223:72: note: to match this '('
+  223 |         else if (ESP_LOG_GET_LEVEL(configs)==ESP_LOG_VERBOSE) { esp_log(ESP_LOG_CONFIG_INIT(ESP_LOG_VERBOSE), tag, LOG_FORMAT(V, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                        ^
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:158:9: note: in expansion of macro 'ESP_LOGI'
+  158 |         ESP_LOGI(TAG, "station "MACSTR" join, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:158:33: error: expected ')' before 'MACSTR'
+  158 |         ESP_LOGI(TAG, "station "MACSTR" join, AID=%d",
+      |                                 ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log_format.h:15:88: note: in definition of macro 'LOG_FORMAT'
+   15 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                                                        ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:158:9: note: in expansion of macro 'ESP_LOGI'
+  158 |         ESP_LOGI(TAG, "station "MACSTR" join, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:224:72: note: to match this '('
+  224 |         else                                                  { esp_log(ESP_LOG_CONFIG_INIT(ESP_LOG_INFO),    tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                        ^
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:158:9: note: in expansion of macro 'ESP_LOGI'
+  158 |         ESP_LOGI(TAG, "station "MACSTR" join, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:157:39: warning: unused variable 'event' [-Wunused-variable]
+  157 |         wifi_event_ap_staconnected_t* event = (wifi_event_ap_staconnected_t*) event_data;
+      |                                       ^~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:162:33: error: expected ')' before 'MACSTR'
+  162 |         ESP_LOGI(TAG, "station "MACSTR" leave, AID=%d",
+      |                                 ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log_format.h:15:88: note: in definition of macro 'LOG_FORMAT'
+   15 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                                                        ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:162:9: note: in expansion of macro 'ESP_LOGI'
+  162 |         ESP_LOGI(TAG, "station "MACSTR" leave, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:220:72: note: to match this '('
+  220 |         if (ESP_LOG_GET_LEVEL(configs)==ESP_LOG_ERROR)        { esp_log(ESP_LOG_CONFIG_INIT(ESP_LOG_ERROR),   tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                        ^
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:162:9: note: in expansion of macro 'ESP_LOGI'
+  162 |         ESP_LOGI(TAG, "station "MACSTR" leave, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:162:33: error: expected ')' before 'MACSTR'
+  162 |         ESP_LOGI(TAG, "station "MACSTR" leave, AID=%d",
+      |                                 ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log_format.h:15:88: note: in definition of macro 'LOG_FORMAT'
+   15 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                                                        ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:162:9: note: in expansion of macro 'ESP_LOGI'
+  162 |         ESP_LOGI(TAG, "station "MACSTR" leave, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:221:72: note: to match this '('
+  221 |         else if (ESP_LOG_GET_LEVEL(configs)==ESP_LOG_WARN)    { esp_log(ESP_LOG_CONFIG_INIT(ESP_LOG_WARN),    tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                        ^
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:162:9: note: in expansion of macro 'ESP_LOGI'
+  162 |         ESP_LOGI(TAG, "station "MACSTR" leave, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:162:33: error: expected ')' before 'MACSTR'
+  162 |         ESP_LOGI(TAG, "station "MACSTR" leave, AID=%d",
+      |                                 ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log_format.h:15:88: note: in definition of macro 'LOG_FORMAT'
+   15 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                                                        ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:162:9: note: in expansion of macro 'ESP_LOGI'
+  162 |         ESP_LOGI(TAG, "station "MACSTR" leave, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:222:72: note: to match this '('
+  222 |         else if (ESP_LOG_GET_LEVEL(configs)==ESP_LOG_DEBUG)   { esp_log(ESP_LOG_CONFIG_INIT(ESP_LOG_DEBUG),   tag, LOG_FORMAT(D, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                        ^
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:162:9: note: in expansion of macro 'ESP_LOGI'
+  162 |         ESP_LOGI(TAG, "station "MACSTR" leave, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:162:33: error: expected ')' before 'MACSTR'
+  162 |         ESP_LOGI(TAG, "station "MACSTR" leave, AID=%d",
+      |                                 ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log_format.h:15:88: note: in definition of macro 'LOG_FORMAT'
+   15 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                                                        ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:162:9: note: in expansion of macro 'ESP_LOGI'
+  162 |         ESP_LOGI(TAG, "station "MACSTR" leave, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:223:72: note: to match this '('
+  223 |         else if (ESP_LOG_GET_LEVEL(configs)==ESP_LOG_VERBOSE) { esp_log(ESP_LOG_CONFIG_INIT(ESP_LOG_VERBOSE), tag, LOG_FORMAT(V, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                        ^
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:162:9: note: in expansion of macro 'ESP_LOGI'
+  162 |         ESP_LOGI(TAG, "station "MACSTR" leave, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:162:33: error: expected ')' before 'MACSTR'
+  162 |         ESP_LOGI(TAG, "station "MACSTR" leave, AID=%d",
+      |                                 ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log_format.h:15:88: note: in definition of macro 'LOG_FORMAT'
+   15 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                                                        ^~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:162:9: note: in expansion of macro 'ESP_LOGI'
+  162 |         ESP_LOGI(TAG, "station "MACSTR" leave, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:224:72: note: to match this '('
+  224 |         else                                                  { esp_log(ESP_LOG_CONFIG_INIT(ESP_LOG_INFO),    tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                        ^
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:165:94: note: in expansion of macro 'ESP_LOG_LEVEL'
+  165 | #define ESP_LOG_LEVEL_LOCAL(configs, tag, format, ...) do { if (_ESP_LOG_ENABLED(configs)) { ESP_LOG_LEVEL(configs, tag, format, ##__VA_ARGS__); } } while(0)
+      |                                                                                              ^~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/esp-idf/components/log/include/esp_log.h:127:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  127 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:162:9: note: in expansion of macro 'ESP_LOGI'
+  162 |         ESP_LOGI(TAG, "station "MACSTR" leave, AID=%d",
+      |         ^~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.c:161:42: warning: unused variable 'event' [-Wunused-variable]
+  161 |         wifi_event_ap_stadisconnected_t* event = (wifi_event_ap_stadisconnected_t*) event_data;
+      |                                          ^~~~~
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:76: esp-idf/main/CMakeFiles/__idf_main.dir/beemonitor.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:6097: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

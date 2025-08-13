@@ -1,0 +1,19 @@
+Command: make -j 14 all
+Configuration Report               
+ ───────────────────────────────── 
+   Parser Version: 1               
+   Verbosity: default              
+   Status: Finished successfully   
+                                   
+ ───────────────────────────────── 
+CMake Error in main/CMakeLists.txt:
+  Cannot find source file:
+
+    /home/frank/Projects/beemonitor/beemonitor/main/web/bee2.jpg
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm .h
+  .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90 .f95 .f03 .hip .ispc
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
+make: *** [Makefile:2356: cmake_check_build_system] Error 1

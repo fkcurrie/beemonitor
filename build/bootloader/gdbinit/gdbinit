@@ -1,0 +1,2 @@
+source /home/frank/Projects/beemonitor/beemonitor/build/bootloader/gdbinit/symbols
+source /home/frank/Projects/beemonitor/beemonitor/build/bootloader/gdbinit/connect

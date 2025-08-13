@@ -1,0 +1,145 @@
+Command: make -j 14 all
+Configuration Report               
+ ───────────────────────────────── 
+   Parser Version: 1               
+   Verbosity: default              
+   Status: Finished successfully   
+                                   
+ ───────────────────────────────── 
+info: Default value for ESP_PERIPH_CTRL_FUNC_IN_IRAM in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+info: Default value for GDMA_CTRL_FUNC_IN_IRAM in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+info: Default value for LIBC_STDOUT_LINE_ENDING_CRLF in sdkconfig is y but it is n according to Kconfig.
+info: Default value for LIBC_STDIN_LINE_ENDING_CR in sdkconfig is y but it is n according to Kconfig.
+Configuration Report                     
+ ─────────────────────────────────────── 
+   Parser Version: 1                     
+   Verbosity: default                    
+   Status: Finished with notifications   
+                                         
+ ─────────────────────────────────────── 
+In file included from /home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/micro/kernels/mul_common.cc:19:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:150:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  150 |       [](const ArithmeticParams& params, const uint8_t input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:126:56: note: shadowed declaration is here
+  126 | inline void BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:209:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  209 |       [](const ArithmeticParams& params, const T input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:171:44: note: shadowed declaration is here
+  171 | BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                    ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:249:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  249 |       [](const ArithmeticParams& params, const std::complex<float> input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:221:56: note: shadowed declaration is here
+  221 | inline void BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from /home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/micro/kernels/lstm_eval.cc:25:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:150:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  150 |       [](const ArithmeticParams& params, const uint8_t input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:126:56: note: shadowed declaration is here
+  126 | inline void BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:209:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  209 |       [](const ArithmeticParams& params, const T input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:171:44: note: shadowed declaration is here
+  171 | BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                    ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:249:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  249 |       [](const ArithmeticParams& params, const std::complex<float> input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:221:56: note: shadowed declaration is here
+  221 | inline void BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from /home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/micro/kernels/sub.cc:24:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:264:62: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  264 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:256:47: note: shadowed declaration is here
+  256 | void BroadcastSubSlow(const ArithmeticParams& params,
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:284:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  284 |          const ArithmeticParams& params) {
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:272:59: note: shadowed declaration is here
+  272 | inline void BroadcastSub16POTSlow(const ArithmeticParams& params,
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:308:62: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  308 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:298:52: note: shadowed declaration is here
+  298 | void BroadcastQuantSubSlow(const ArithmeticParams& params,
+      |                            ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:420:62: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  420 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:413:34: note: shadowed declaration is here
+  413 | void Sub(const ArithmeticParams& params, const RuntimeShape& input1_shape,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from /home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/micro/kernels/sub_common.cc:22:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:264:62: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  264 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:256:47: note: shadowed declaration is here
+  256 | void BroadcastSubSlow(const ArithmeticParams& params,
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:284:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  284 |          const ArithmeticParams& params) {
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:272:59: note: shadowed declaration is here
+  272 | inline void BroadcastSub16POTSlow(const ArithmeticParams& params,
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:308:62: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  308 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:298:52: note: shadowed declaration is here
+  298 | void BroadcastQuantSubSlow(const ArithmeticParams& params,
+      |                            ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:420:62: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  420 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:413:34: note: shadowed declaration is here
+  413 | void Sub(const ArithmeticParams& params, const RuntimeShape& input1_shape,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from /home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/micro/kernels/esp_nn/mul.cc:21:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:150:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  150 |       [](const ArithmeticParams& params, const uint8_t input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:126:56: note: shadowed declaration is here
+  126 | inline void BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:209:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  209 |       [](const ArithmeticParams& params, const T input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:171:44: note: shadowed declaration is here
+  171 | BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                    ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:249:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  249 |       [](const ArithmeticParams& params, const std::complex<float> input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:221:56: note: shadowed declaration is here
+  221 | inline void BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~

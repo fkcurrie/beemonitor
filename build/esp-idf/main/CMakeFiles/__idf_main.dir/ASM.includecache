@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/frank/Projects/beemonitor/beemonitor/build/bee1.jpg.S
+
+/home/frank/Projects/beemonitor/beemonitor/build/bee2.jpg.S
+
+/home/frank/Projects/beemonitor/beemonitor/build/style.css.S
+

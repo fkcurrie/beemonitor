@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles/bootloader
+/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles/bootloader.rule
+/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles/bootloader-complete.rule
+/home/frank/Projects/beemonitor/beemonitor/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/frank/Projects/beemonitor/beemonitor/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/frank/Projects/beemonitor/beemonitor/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/frank/Projects/beemonitor/beemonitor/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/frank/Projects/beemonitor/beemonitor/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/frank/Projects/beemonitor/beemonitor/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/frank/Projects/beemonitor/beemonitor/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
