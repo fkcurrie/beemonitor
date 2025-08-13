@@ -8,6 +8,7 @@ target_add_binary_data(${COMPONENT_TARGET} "web/style.css" TEXT)
 target_add_binary_data(${COMPONENT_TARGET} "web/style.css" TEXT)
 target_add_binary_data(${COMPONENT_TARGET} "web/bee1.jpg" BINARY)
 target_add_binary_data(${COMPONENT_TARGET} "web/bee2.jpg" BINARY)
+target_add_binary_data(${COMPONENT_TARGET} "web/bee2.jpg" BINARY)
 
 
 

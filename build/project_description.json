@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "beemonitor",
-    "project_version":    "1",
+    "project_version":    "f8ae894-dirty",
     "project_path":       "/home/frank/Projects/beemonitor/beemonitor",
     "idf_path":           "/home/frank/Projects/beemonitor/esp-idf",
     "build_dir":          "/home/frank/Projects/beemonitor/beemonitor/build",
@@ -1315,7 +1315,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "/home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main/libmain.a",
-            "sources": [ "/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.cpp", "/home/frank/Projects/beemonitor/beemonitor/main/person_detect_model_data.cc", "/home/frank/Projects/beemonitor/beemonitor/main/display.cpp", "/home/frank/Projects/beemonitor/beemonitor/main/config.c", "/home/frank/Projects/beemonitor/beemonitor/main/provisioning.c", "/home/frank/Projects/beemonitor/beemonitor/build/style.css.S", "/home/frank/Projects/beemonitor/beemonitor/build/bee1.jpg.S", "/home/frank/Projects/beemonitor/beemonitor/build/bee2.jpg.S" ],
+            "sources": [ "/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.cpp", "/home/frank/Projects/beemonitor/beemonitor/main/person_detect_model_data.cc", "/home/frank/Projects/beemonitor/beemonitor/main/display.cpp", "/home/frank/Projects/beemonitor/beemonitor/main/config.c", "/home/frank/Projects/beemonitor/beemonitor/main/provisioning.c", "/home/frank/Projects/beemonitor/beemonitor/build/style.css.S", "/home/frank/Projects/beemonitor/beemonitor/build/style.css.S", "/home/frank/Projects/beemonitor/beemonitor/build/bee1.jpg.S", "/home/frank/Projects/beemonitor/beemonitor/build/bee2.jpg.S" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {

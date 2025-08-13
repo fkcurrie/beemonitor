@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "../../bee1.jpg.S"
+  "../../bee2.jpg.S"
   "../../style.css.S"
   "CMakeFiles/__idf_main.dir/__/__/bee1.jpg.S.obj"
   "CMakeFiles/__idf_main.dir/__/__/bee2.jpg.S.obj"

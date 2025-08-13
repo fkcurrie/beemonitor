@@ -79,10 +79,15 @@ bee1.jpg.S: /home/frank/Projects/beemonitor/esp-idf/tools/cmake/scripts/data_fil
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating ../../bee1.jpg.S"
 	/usr/bin/cmake -D DATA_FILE=/home/frank/Projects/beemonitor/beemonitor/main/web/bee1.jpg -D SOURCE_FILE=/home/frank/Projects/beemonitor/beemonitor/build/bee1.jpg.S -D FILE_TYPE=BINARY -P /home/frank/Projects/beemonitor/esp-idf/tools/cmake/scripts/data_file_embed_asm.cmake
 
+bee2.jpg.S: /home/frank/Projects/beemonitor/beemonitor/main/web/bee2.jpg
+bee2.jpg.S: /home/frank/Projects/beemonitor/esp-idf/tools/cmake/scripts/data_file_embed_asm.cmake
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating ../../bee2.jpg.S"
+	/usr/bin/cmake -D DATA_FILE=/home/frank/Projects/beemonitor/beemonitor/main/web/bee2.jpg -D SOURCE_FILE=/home/frank/Projects/beemonitor/beemonitor/build/bee2.jpg.S -D FILE_TYPE=BINARY -P /home/frank/Projects/beemonitor/esp-idf/tools/cmake/scripts/data_file_embed_asm.cmake
+
 esp-idf/main/CMakeFiles/__idf_main.dir/beemonitor.cpp.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
 esp-idf/main/CMakeFiles/__idf_main.dir/beemonitor.cpp.obj: /home/frank/Projects/beemonitor/beemonitor/main/beemonitor.cpp
 esp-idf/main/CMakeFiles/__idf_main.dir/beemonitor.cpp.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/beemonitor.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/beemonitor.cpp.obj"
 	cd /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main && /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/beemonitor.cpp.obj -MF CMakeFiles/__idf_main.dir/beemonitor.cpp.obj.d -o CMakeFiles/__idf_main.dir/beemonitor.cpp.obj -c /home/frank/Projects/beemonitor/beemonitor/main/beemonitor.cpp
 
 esp-idf/main/CMakeFiles/__idf_main.dir/beemonitor.cpp.i: cmake_force
@@ -96,7 +101,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/beemonitor.cpp.s: cmake_force
 esp-idf/main/CMakeFiles/__idf_main.dir/person_detect_model_data.cc.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
 esp-idf/main/CMakeFiles/__idf_main.dir/person_detect_model_data.cc.obj: /home/frank/Projects/beemonitor/beemonitor/main/person_detect_model_data.cc
 esp-idf/main/CMakeFiles/__idf_main.dir/person_detect_model_data.cc.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/person_detect_model_data.cc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/person_detect_model_data.cc.obj"
 	cd /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main && /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/person_detect_model_data.cc.obj -MF CMakeFiles/__idf_main.dir/person_detect_model_data.cc.obj.d -o CMakeFiles/__idf_main.dir/person_detect_model_data.cc.obj -c /home/frank/Projects/beemonitor/beemonitor/main/person_detect_model_data.cc
 
 esp-idf/main/CMakeFiles/__idf_main.dir/person_detect_model_data.cc.i: cmake_force
@@ -110,7 +115,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/person_detect_model_data.cc.s: cmake_forc
 esp-idf/main/CMakeFiles/__idf_main.dir/display.cpp.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
 esp-idf/main/CMakeFiles/__idf_main.dir/display.cpp.obj: /home/frank/Projects/beemonitor/beemonitor/main/display.cpp
 esp-idf/main/CMakeFiles/__idf_main.dir/display.cpp.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/display.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/display.cpp.obj"
 	cd /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main && /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/display.cpp.obj -MF CMakeFiles/__idf_main.dir/display.cpp.obj.d -o CMakeFiles/__idf_main.dir/display.cpp.obj -c /home/frank/Projects/beemonitor/beemonitor/main/display.cpp
 
 esp-idf/main/CMakeFiles/__idf_main.dir/display.cpp.i: cmake_force
@@ -124,7 +129,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/display.cpp.s: cmake_force
 esp-idf/main/CMakeFiles/__idf_main.dir/config.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
 esp-idf/main/CMakeFiles/__idf_main.dir/config.c.obj: /home/frank/Projects/beemonitor/beemonitor/main/config.c
 esp-idf/main/CMakeFiles/__idf_main.dir/config.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/config.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/config.c.obj"
 	cd /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main && /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/config.c.obj -MF CMakeFiles/__idf_main.dir/config.c.obj.d -o CMakeFiles/__idf_main.dir/config.c.obj -c /home/frank/Projects/beemonitor/beemonitor/main/config.c
 
 esp-idf/main/CMakeFiles/__idf_main.dir/config.c.i: cmake_force
@@ -138,7 +143,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/config.c.s: cmake_force
 esp-idf/main/CMakeFiles/__idf_main.dir/provisioning.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
 esp-idf/main/CMakeFiles/__idf_main.dir/provisioning.c.obj: /home/frank/Projects/beemonitor/beemonitor/main/provisioning.c
 esp-idf/main/CMakeFiles/__idf_main.dir/provisioning.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/provisioning.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/provisioning.c.obj"
 	cd /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main && /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/provisioning.c.obj -MF CMakeFiles/__idf_main.dir/provisioning.c.obj.d -o CMakeFiles/__idf_main.dir/provisioning.c.obj -c /home/frank/Projects/beemonitor/beemonitor/main/provisioning.c
 
 esp-idf/main/CMakeFiles/__idf_main.dir/provisioning.c.i: cmake_force
@@ -151,7 +156,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/provisioning.c.s: cmake_force
 
 esp-idf/main/CMakeFiles/__idf_main.dir/__/__/style.css.S.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
 esp-idf/main/CMakeFiles/__idf_main.dir/__/__/style.css.S.obj: style.css.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/style.css.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/style.css.S.obj"
 	cd /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main && /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/__idf_main.dir/__/__/style.css.S.obj -c /home/frank/Projects/beemonitor/beemonitor/build/style.css.S
 
 esp-idf/main/CMakeFiles/__idf_main.dir/__/__/style.css.S.i: cmake_force
@@ -164,7 +169,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/__/__/style.css.S.s: cmake_force
 
 esp-idf/main/CMakeFiles/__idf_main.dir/__/__/bee1.jpg.S.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
 esp-idf/main/CMakeFiles/__idf_main.dir/__/__/bee1.jpg.S.obj: bee1.jpg.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/bee1.jpg.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/bee1.jpg.S.obj"
 	cd /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main && /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/__idf_main.dir/__/__/bee1.jpg.S.obj -c /home/frank/Projects/beemonitor/beemonitor/build/bee1.jpg.S
 
 esp-idf/main/CMakeFiles/__idf_main.dir/__/__/bee1.jpg.S.i: cmake_force
@@ -177,7 +182,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/__/__/bee1.jpg.S.s: cmake_force
 
 esp-idf/main/CMakeFiles/__idf_main.dir/__/__/bee2.jpg.S.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
 esp-idf/main/CMakeFiles/__idf_main.dir/__/__/bee2.jpg.S.obj: bee2.jpg.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/bee2.jpg.S.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/bee2.jpg.S.obj"
 	cd /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main && /home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/__idf_main.dir/__/__/bee2.jpg.S.obj -c /home/frank/Projects/beemonitor/beemonitor/build/bee2.jpg.S
 
 esp-idf/main/CMakeFiles/__idf_main.dir/__/__/bee2.jpg.S.i: cmake_force
@@ -212,7 +217,7 @@ esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/__/__/bee1.jpg.S.
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/__/__/bee2.jpg.S.obj
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/build.make
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking C static library libmain.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking C static library libmain.a"
 	cd /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main && $(CMAKE_COMMAND) -P CMakeFiles/__idf_main.dir/cmake_clean_target.cmake
 	cd /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/__idf_main.dir/link.txt --verbose=$(VERBOSE)
 
@@ -225,6 +230,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/clean:
 .PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/clean
 
 esp-idf/main/CMakeFiles/__idf_main.dir/depend: bee1.jpg.S
+esp-idf/main/CMakeFiles/__idf_main.dir/depend: bee2.jpg.S
 esp-idf/main/CMakeFiles/__idf_main.dir/depend: style.css.S
 	cd /home/frank/Projects/beemonitor/beemonitor/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/frank/Projects/beemonitor/beemonitor /home/frank/Projects/beemonitor/beemonitor/main /home/frank/Projects/beemonitor/beemonitor/build /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main/CMakeFiles/__idf_main.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/depend

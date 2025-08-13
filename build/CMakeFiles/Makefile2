@@ -3183,7 +3183,7 @@ esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all: esp-idf/esp_driver_gpio/CMakeFil
 
 # Build rule for subdir invocation for target.
 esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/rule
@@ -3209,7 +3209,7 @@ esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/all: esp-idf/esp_pm
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/rule
@@ -3235,7 +3235,7 @@ esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all: esp-idf/mbedtls/CMakeFiles/__idf
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 58
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/rule
@@ -3261,7 +3261,7 @@ esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/all: esp-idf/mbedtls/mbedtls/3rdpar
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 58
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/rule
@@ -3339,7 +3339,7 @@ esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/all: esp-idf/mbe
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 58
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/rule
@@ -3365,7 +3365,7 @@ esp-idf/mbedtls/mbedtls/3rdparty/p256-m/CMakeFiles/p256m.dir/all: esp-idf/mbedtl
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/3rdparty/p256-m/CMakeFiles/p256m.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 57
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 58
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/3rdparty/p256-m/CMakeFiles/p256m.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/3rdparty/p256-m/CMakeFiles/p256m.dir/rule
@@ -3391,7 +3391,7 @@ esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/all: esp-idf/mbedtls/m
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 57
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 58
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/rule
@@ -3417,7 +3417,7 @@ esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/all: esp-idf/mbedtls/mbe
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 50
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 51
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/rule
@@ -3443,7 +3443,7 @@ esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/all: esp-idf/esp_app_form
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 50
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/rule
@@ -3469,7 +3469,7 @@ esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib.dir/all: esp-idf/xtensa/CMakeFile
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib.dir/rule
@@ -3703,7 +3703,7 @@ esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/all: esp-idf/esp_boot
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 48
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 49
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/rule
@@ -3729,7 +3729,7 @@ esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/all: es
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 48
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 49
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/rule
@@ -3755,7 +3755,7 @@ esp-idf/app_update/CMakeFiles/__idf_app_update.dir/all: esp-idf/esp_partition/CM
 
 # Build rule for subdir invocation for target.
 esp-idf/app_update/CMakeFiles/__idf_app_update.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 48
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 49
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/app_update/CMakeFiles/__idf_app_update.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/app_update/CMakeFiles/__idf_app_update.dir/rule
@@ -3963,7 +3963,7 @@ esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/all: esp-idf/efuse/CMak
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 48
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 49
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/rule
@@ -3989,7 +3989,7 @@ esp-idf/efuse/CMakeFiles/__idf_efuse.dir/all: esp-idf/bootloader_support/CMakeFi
 
 # Build rule for subdir invocation for target.
 esp-idf/efuse/CMakeFiles/__idf_efuse.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 47
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 48
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/efuse/CMakeFiles/__idf_efuse.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/efuse/CMakeFiles/__idf_efuse.dir/rule
@@ -4197,7 +4197,7 @@ esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/all: esp-idf/
 
 # Build rule for subdir invocation for target.
 esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 47
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 48
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/rule
@@ -4223,7 +4223,7 @@ esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/all: esp-idf/spi_flash/CMakeFiles/__i
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 46
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 47
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/rule
@@ -4249,7 +4249,7 @@ esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/all: esp-idf/esp_system/CMakeFi
 
 # Build rule for subdir invocation for target.
 esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 45
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 46
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/rule
@@ -4275,7 +4275,7 @@ esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/all: esp-idf/esp_common/CMake
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 43
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 44
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/rule
@@ -4353,7 +4353,7 @@ esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/all: esp-idf/esp_rom/CMakeFil
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 40
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 41
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/rule
@@ -4379,7 +4379,7 @@ esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/all: esp-idf/hal/CMakeFiles/__idf_h
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 40
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 41
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/rule
@@ -4405,7 +4405,7 @@ esp-idf/hal/CMakeFiles/__idf_hal.dir/all: esp-idf/log/CMakeFiles/__idf_log.dir/a
 
 # Build rule for subdir invocation for target.
 esp-idf/hal/CMakeFiles/__idf_hal.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 40
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 41
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/hal/CMakeFiles/__idf_hal.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/hal/CMakeFiles/__idf_hal.dir/rule
@@ -4431,7 +4431,7 @@ esp-idf/log/CMakeFiles/__idf_log.dir/all: esp-idf/heap/CMakeFiles/__idf_heap.dir
 
 # Build rule for subdir invocation for target.
 esp-idf/log/CMakeFiles/__idf_log.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 37
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/log/CMakeFiles/__idf_log.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/log/CMakeFiles/__idf_log.dir/rule
@@ -4457,7 +4457,7 @@ esp-idf/heap/CMakeFiles/__idf_heap.dir/all: esp-idf/soc/CMakeFiles/__idf_soc.dir
 
 # Build rule for subdir invocation for target.
 esp-idf/heap/CMakeFiles/__idf_heap.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 36
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/heap/CMakeFiles/__idf_heap.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/heap/CMakeFiles/__idf_heap.dir/rule
@@ -4483,7 +4483,7 @@ esp-idf/soc/CMakeFiles/__idf_soc.dir/all: esp-idf/esp_security/CMakeFiles/__idf_
 
 # Build rule for subdir invocation for target.
 esp-idf/soc/CMakeFiles/__idf_soc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 34
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/soc/CMakeFiles/__idf_soc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/soc/CMakeFiles/__idf_soc.dir/rule
@@ -4509,7 +4509,7 @@ esp-idf/esp_security/CMakeFiles/__idf_esp_security.dir/all: esp-idf/esp_hw_suppo
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_security/CMakeFiles/__idf_esp_security.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 32
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 33
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_security/CMakeFiles/__idf_esp_security.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_security/CMakeFiles/__idf_esp_security.dir/rule
@@ -4535,7 +4535,7 @@ esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/all: esp-idf/freertos
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 31
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 32
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/rule
@@ -4561,7 +4561,7 @@ esp-idf/freertos/CMakeFiles/__idf_freertos.dir/all: esp-idf/newlib/CMakeFiles/__
 
 # Build rule for subdir invocation for target.
 esp-idf/freertos/CMakeFiles/__idf_freertos.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 29
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/freertos/CMakeFiles/__idf_freertos.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/freertos/CMakeFiles/__idf_freertos.dir/rule
@@ -4587,7 +4587,7 @@ esp-idf/newlib/CMakeFiles/__idf_newlib.dir/all: esp-idf/pthread/CMakeFiles/__idf
 
 # Build rule for subdir invocation for target.
 esp-idf/newlib/CMakeFiles/__idf_newlib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 27
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/newlib/CMakeFiles/__idf_newlib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/newlib/CMakeFiles/__idf_newlib.dir/rule
@@ -4613,7 +4613,7 @@ esp-idf/pthread/CMakeFiles/__idf_pthread.dir/all: esp-idf/cxx/CMakeFiles/__idf_c
 
 # Build rule for subdir invocation for target.
 esp-idf/pthread/CMakeFiles/__idf_pthread.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 27
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/pthread/CMakeFiles/__idf_pthread.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/pthread/CMakeFiles/__idf_pthread.dir/rule
@@ -4639,7 +4639,7 @@ esp-idf/cxx/CMakeFiles/__idf_cxx.dir/all: esp-idf/esp_timer/CMakeFiles/__idf_esp
 
 # Build rule for subdir invocation for target.
 esp-idf/cxx/CMakeFiles/__idf_cxx.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 27
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/cxx/CMakeFiles/__idf_cxx.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/cxx/CMakeFiles/__idf_cxx.dir/rule
@@ -4665,7 +4665,7 @@ esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/all: esp-idf/esp_driver_gptimer
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 27
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/rule
@@ -4691,7 +4691,7 @@ esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all: esp-idf/
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 27
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/rule
@@ -4717,7 +4717,7 @@ esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/all: esp-idf/esp_driver_uar
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 27
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/rule
@@ -4743,7 +4743,7 @@ esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/all: esp-idf/esp_ev
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 26
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/rule
@@ -4769,7 +4769,7 @@ esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/all: esp-idf/xtensa/CMakeFiles/
 
 # Build rule for subdir invocation for target.
 esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/rule
@@ -4790,12 +4790,12 @@ esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/clean:
 esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/all: esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/build.make esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/build.make esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num= "Built target __idf_esp_event"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=27 "Built target __idf_esp_event"
 .PHONY : esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 26
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/rule
@@ -5133,7 +5133,7 @@ esp-idf/unity/CMakeFiles/__idf_unity.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xt
 
 # Build rule for subdir invocation for target.
 esp-idf/unity/CMakeFiles/__idf_unity.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 61
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/unity/CMakeFiles/__idf_unity.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/unity/CMakeFiles/__idf_unity.dir/rule
@@ -5160,7 +5160,7 @@ esp-idf/cmock/CMakeFiles/__idf_cmock.dir/all: esp-idf/unity/CMakeFiles/__idf_uni
 
 # Build rule for subdir invocation for target.
 esp-idf/cmock/CMakeFiles/__idf_cmock.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 61
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/cmock/CMakeFiles/__idf_cmock.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/cmock/CMakeFiles/__idf_cmock.dir/rule
@@ -5186,7 +5186,7 @@ esp-idf/console/CMakeFiles/__idf_console.dir/all: esp-idf/xtensa/CMakeFiles/__id
 
 # Build rule for subdir invocation for target.
 esp-idf/console/CMakeFiles/__idf_console.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 61
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 62
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/console/CMakeFiles/__idf_console.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/console/CMakeFiles/__idf_console.dir/rule
@@ -5654,7 +5654,7 @@ esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/all: esp-idf/xtensa/C
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/rule
@@ -5680,7 +5680,7 @@ esp-idf/esp_driver_touch_sens/CMakeFiles/__idf_esp_driver_touch_sens.dir/all: es
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_touch_sens/CMakeFiles/__idf_esp_driver_touch_sens.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_touch_sens/CMakeFiles/__idf_esp_driver_touch_sens.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_touch_sens/CMakeFiles/__idf_esp_driver_touch_sens.dir/rule
@@ -5701,7 +5701,7 @@ esp-idf/esp_driver_touch_sens/CMakeFiles/__idf_esp_driver_touch_sens.dir/clean:
 esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/build.make esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/build.make esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num=27 "Built target __idf_esp_eth"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles --progress-num= "Built target __idf_esp_eth"
 .PHONY : esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5732,7 +5732,7 @@ esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/all: esp-idf/xtensa/CMakeFiles/__id
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 61
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/rule
@@ -5864,7 +5864,7 @@ esp-idf/esp_https_server/CMakeFiles/__idf_esp_https_server.dir/all: esp-idf/xten
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_https_server/CMakeFiles/__idf_esp_https_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_https_server/CMakeFiles/__idf_esp_https_server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_https_server/CMakeFiles/__idf_esp_https_server.dir/rule
@@ -5890,7 +5890,7 @@ esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/all: esp-idf/xtensa/CMakeFiles/__id
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 61
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/rule
@@ -5916,7 +5916,7 @@ esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/all: esp-idf/xtensa/CMakeFile
 
 # Build rule for subdir invocation for target.
 esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/rule
@@ -5944,7 +5944,7 @@ esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/all: esp-idf/protobuf-c/CMakeFi
 
 # Build rule for subdir invocation for target.
 esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 62
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 63
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/rule
@@ -5974,7 +5974,7 @@ esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/all: esp-idf/protocom
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 62
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 63
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/rule
@@ -6000,7 +6000,7 @@ esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/all: esp-idf/xtensa/CMakeFi
 
 # Build rule for subdir invocation for target.
 esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 61
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/rule
@@ -6026,7 +6026,7 @@ esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all: esp-idf/xtensa/C
 
 # Build rule for subdir invocation for target.
 esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 61
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/rule
@@ -6053,7 +6053,7 @@ esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all: esp-idf/wear_levelling/CMakeFiles/
 
 # Build rule for subdir invocation for target.
 esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 61
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 62
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/rule
@@ -6079,7 +6079,7 @@ esp-idf/json/CMakeFiles/__idf_json.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xten
 
 # Build rule for subdir invocation for target.
 esp-idf/json/CMakeFiles/__idf_json.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/json/CMakeFiles/__idf_json.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/json/CMakeFiles/__idf_json.dir/rule
@@ -6105,7 +6105,7 @@ esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xten
 
 # Build rule for subdir invocation for target.
 esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 61
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/rule
@@ -6131,7 +6131,7 @@ esp-idf/nvs_sec_provider/CMakeFiles/__idf_nvs_sec_provider.dir/all: esp-idf/xten
 
 # Build rule for subdir invocation for target.
 esp-idf/nvs_sec_provider/CMakeFiles/__idf_nvs_sec_provider.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/nvs_sec_provider/CMakeFiles/__idf_nvs_sec_provider.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/nvs_sec_provider/CMakeFiles/__idf_nvs_sec_provider.dir/rule
@@ -6157,7 +6157,7 @@ esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/all: esp-idf/xtensa/CMakeFiles/__id
 
 # Build rule for subdir invocation for target.
 esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/rule
@@ -6183,7 +6183,7 @@ esp-idf/rt/CMakeFiles/__idf_rt.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.d
 
 # Build rule for subdir invocation for target.
 esp-idf/rt/CMakeFiles/__idf_rt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 61
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/rt/CMakeFiles/__idf_rt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/rt/CMakeFiles/__idf_rt.dir/rule
@@ -6209,7 +6209,7 @@ esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all: esp-idf/xtensa/CMakeFiles/__idf_
 
 # Build rule for subdir invocation for target.
 esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/rule
@@ -6235,7 +6235,7 @@ esp-idf/touch_element/CMakeFiles/__idf_touch_element.dir/all: esp-idf/xtensa/CMa
 
 # Build rule for subdir invocation for target.
 esp-idf/touch_element/CMakeFiles/__idf_touch_element.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/touch_element/CMakeFiles/__idf_touch_element.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/touch_element/CMakeFiles/__idf_touch_element.dir/rule
@@ -6261,7 +6261,7 @@ esp-idf/usb/CMakeFiles/__idf_usb.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa
 
 # Build rule for subdir invocation for target.
 esp-idf/usb/CMakeFiles/__idf_usb.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/usb/CMakeFiles/__idf_usb.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/usb/CMakeFiles/__idf_usb.dir/rule
@@ -6291,7 +6291,7 @@ esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all: esp-idf/js
 
 # Build rule for subdir invocation for target.
 esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 63
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 64
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/rule
@@ -6317,7 +6317,7 @@ esp-idf/espressif__esp_jpeg/CMakeFiles/__idf_espressif__esp_jpeg.dir/all: esp-id
 
 # Build rule for subdir invocation for target.
 esp-idf/espressif__esp_jpeg/CMakeFiles/__idf_espressif__esp_jpeg.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/espressif__esp_jpeg/CMakeFiles/__idf_espressif__esp_jpeg.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/espressif__esp_jpeg/CMakeFiles/__idf_espressif__esp_jpeg.dir/rule
@@ -6344,7 +6344,7 @@ esp-idf/esp32-camera/CMakeFiles/__idf_esp32-camera.dir/all: esp-idf/espressif__e
 
 # Build rule for subdir invocation for target.
 esp-idf/esp32-camera/CMakeFiles/__idf_esp32-camera.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 61
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp32-camera/CMakeFiles/__idf_esp32-camera.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp32-camera/CMakeFiles/__idf_esp32-camera.dir/rule
@@ -6370,7 +6370,7 @@ esp-idf/espressif__esp-nn/CMakeFiles/__idf_espressif__esp-nn.dir/all: esp-idf/xt
 
 # Build rule for subdir invocation for target.
 esp-idf/espressif__esp-nn/CMakeFiles/__idf_espressif__esp-nn.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 61
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 62
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/espressif__esp-nn/CMakeFiles/__idf_espressif__esp-nn.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/espressif__esp-nn/CMakeFiles/__idf_espressif__esp-nn.dir/rule
@@ -6397,7 +6397,7 @@ esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/all: esp-idf/espr
 
 # Build rule for subdir invocation for target.
 esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 74
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 75
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/rule
@@ -6423,7 +6423,7 @@ esp-idf/u8g2/CMakeFiles/__idf_u8g2.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xten
 
 # Build rule for subdir invocation for target.
 esp-idf/u8g2/CMakeFiles/__idf_u8g2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 68
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 69
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/u8g2/CMakeFiles/__idf_u8g2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/u8g2/CMakeFiles/__idf_u8g2.dir/rule
@@ -6450,7 +6450,7 @@ esp-idf/u8g2-hal-esp-idf/CMakeFiles/__idf_u8g2-hal-esp-idf.dir/all: esp-idf/u8g2
 
 # Build rule for subdir invocation for target.
 esp-idf/u8g2-hal-esp-idf/CMakeFiles/__idf_u8g2-hal-esp-idf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 68
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 69
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/u8g2-hal-esp-idf/CMakeFiles/__idf_u8g2-hal-esp-idf.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/u8g2-hal-esp-idf/CMakeFiles/__idf_u8g2-hal-esp-idf.dir/rule
@@ -6482,7 +6482,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/u8g2-hal-esp-idf/CMakeFiles/
 
 # Build rule for subdir invocation for target.
 esp-idf/main/CMakeFiles/__idf_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 85
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 86
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/main/CMakeFiles/__idf_main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/frank/Projects/beemonitor/beemonitor/build/CMakeFiles 0
 .PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/rule

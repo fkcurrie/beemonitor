@@ -3,19 +3,20 @@
   "author": "Frank Currie",
   "editor": "wokwi",
   "parts": [
-    { "type": "wokwi-esp32-s3-devkit-c1", "id": "esp" },
+    { "type": "board-esp32-s3-devkitc-1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
     {
       "type": "wokwi-ssd1306",
-      "id": "ssd1306",
+      "id": "oled",
       "top": -100,
-      "left": 150,
-      "attrs": { "i2cAddress": "0x3C" }
+      "left": 250,
+      "attrs": { "i2cAddress": "0x3c" }
     }
   ],
   "connections": [
-    [ "esp:GND", "ssd1306:GND", "black", [ "v0" ] ],
-    [ "esp:3V3", "ssd1306:VCC", "red", [ "v0" ] ],
-    [ "esp:4", "ssd1306:SCL", "green", [ "v0" ] ],
-    [ "esp:5", "ssd1306:SDA", "blue", [ "v0" ] ]
-  ]
+    [ "esp:GND.1", "oled:GND", "black", [ "h-91.48", "v-364.98", "h439.9" ] ],
+    [ "esp:3V3.1", "oled:3V3", "red", [ "h-43.48", "v-153.78", "h371.9" ] ],
+    [ "esp:5", "oled:DATA", "blue", [ "h-72.28", "v-172.98", "h353.7" ] ],
+    [ "esp:4", "oled:CLK", "green", [ "h-81.88", "v-172.98", "h372.3" ] ]
+  ],
+  "dependencies": {}
 }

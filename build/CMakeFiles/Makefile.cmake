@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "/home/frank/Projects/beemonitor/beemonitor/.git/HEAD"
+  "/home/frank/Projects/beemonitor/beemonitor/.git/refs/heads/main"
   "/home/frank/Projects/beemonitor/beemonitor/CMakeLists.txt"
   "CMakeFiles/3.25.1/CMakeASMCompiler.cmake"
   "CMakeFiles/3.25.1/CMakeCCompiler.cmake"
@@ -305,6 +306,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/git-data/head-ref"
   "CMakeFiles/git-data/HEAD"
   "CMakeFiles/git-data/grabRef.cmake"
+  "CMakeFiles/git-data/head-ref"
   "config.env"
   "bootloader-prefix/tmp/bootloader-mkdirs.cmake"
   "bootloader-prefix/src/bootloader-stamp/bootloader-source_dirinfo.txt"

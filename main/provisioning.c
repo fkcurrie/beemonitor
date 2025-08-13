@@ -21,6 +21,8 @@ extern const uint8_t bee1_jpg_start[] asm("_binary_web_bee1_jpg_start");
 extern const uint8_t bee1_jpg_end[]   asm("_binary_web_bee1_jpg_end");
 extern const uint8_t bee2_jpg_start[] asm("_binary_web_bee2_jpg_start");
 extern const uint8_t bee2_jpg_end[]   asm("_binary_web_bee2_jpg_end");
+extern const uint8_t bee2_jpg_start[] asm("_binary_web_bee2_jpg_start");
+extern const uint8_t bee2_jpg_end[]   asm("_binary_web_bee2_jpg_end");
 
 /* Event handler for catching system events */
 static void event_handler(void* arg, esp_event_base_t event_base,
@@ -62,6 +64,20 @@ static const httpd_uri_t bee1_jpg_uri = {
     .uri       = "/bee1.jpg",
     .method    = HTTP_GET,
     .handler   = bee1_jpg_handler,
+    .user_ctx  = NULL
+};
+
+static esp_err_t bee2_jpg_handler(httpd_req_t *req)
+{
+    httpd_resp_set_type(req, "image/jpeg");
+    httpd_resp_send(req, (const char *)bee2_jpg_start, bee2_jpg_end - bee2_jpg_start);
+    return ESP_OK;
+}
+
+static const httpd_uri_t bee2_jpg_uri = {
+    .uri       = "/bee2.jpg",
+    .method    = HTTP_GET,
+    .handler   = bee2_jpg_handler,
     .user_ctx  = NULL
 };
 
@@ -231,8 +247,6 @@ static httpd_handle_t start_webserver(void)
     if (httpd_start(&server, &config) == ESP_OK) {
         // Set URI handlers
         ESP_LOGI(TAG, "Registering URI handlers");
-        httpd_register_uri_handler(server, &main_uri);
-        httpd_register_uri_handler(server, &hardware_uri);
         httpd_register_uri_handler(server, &style_css_uri);
         httpd_register_uri_handler(server, &bee1_jpg_uri);
         httpd_register_uri_handler(server, &bee2_jpg_uri);
