@@ -4,10 +4,11 @@ This project aims to create a self-sustaining, AI-powered bee monitor using an E
 
 ## Features
 
+*   **On-Device Configuration:** On first boot, the device starts a Wi-Fi Access Point (`BeeMonitor-Setup`) and hosts a web page to configure Wi-Fi credentials, system name, and user access.
 *   **AI-Powered Counting:** Uses a TensorFlow Lite Micro model to detect bees in real-time.
 *   **Power Efficient:** Leverages the ESP32-S3's deep sleep capabilities to run on battery and solar power.
 *   **Data Logging:** Sends bee counts to a server via HTTP POST every 30 seconds.
-*   **Local Display:** Shows the current bee counts on a small OLED display.
+*   **Local Display:** Shows the current bee counts and system status on a small OLED display.
 *   **State Persistence:** Bee counts are stored in RTC memory to survive deep sleep cycles.
 
 ## Hardware Requirements
@@ -23,12 +24,12 @@ A complete Bill of Materials with specific part numbers is available in the `GEM
 
 ### OLED Display (I2C)
 
-| Display Pin | ESP32-S3 Pin |
-|:------------|:-------------|
-| GND         | GND          |
-| Vin / VCC   | 3V3          |
-| SDA         | GPIO5        |
-| SCL         | GPIO4        |
+| OLED Pin | ESP32-S3 Pin |
+|:---------|:-------------|
+| GND      | GND.1        |
+| 3V3      | 3V3.1        |
+| DATA     | GPIO5        |
+| CLK      | GPIO4        |
 
 ### Camera (DVP)
 
