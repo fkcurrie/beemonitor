@@ -7,12 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+- Removed all Wokwi simulator-related files and configurations from the project.
+
 ### Added
 - Implemented a full Wi-Fi provisioning web server in AP mode.
 - Added Wi-Fi scanning to the provisioning portal.
 - Added configuration for system name, username, and password.
 - Added version and copyright splash screen to the OLED display on boot.
-- Added Wokwi simulation configuration (`wokwi.toml`, `diagram.json`).
 - Implemented OLED display support using the U8g2 library to show bee counts.
 - Integrated Wi-Fi, HTTP client, and deep-sleep functionality into the main application.
 - Storing bee counts in RTC memory to persist across deep sleep cycles.

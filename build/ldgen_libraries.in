@@ -174,3 +174,4 @@ $<TARGET_FILE:idf::main>
 $<TARGET_FILE:__idf_esp32-camera>
 $<TARGET_FILE:__idf_esp-tflite-micro>
 $<TARGET_FILE:__idf_u8g2-hal-esp-idf>
+$<TARGET_FILE:__idf_spiffs>

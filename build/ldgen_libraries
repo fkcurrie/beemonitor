@@ -174,3 +174,4 @@
 /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/esp32-camera/libesp32-camera.a
 /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/esp-tflite-micro/libesp-tflite-micro.a
 /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/u8g2-hal-esp-idf/libu8g2-hal-esp-idf.a
+/home/frank/Projects/beemonitor/beemonitor/build/esp-idf/spiffs/libspiffs.a

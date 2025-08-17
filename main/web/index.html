@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Apiary Guardian Setup</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+<div class="container">
+<h1>Apiary Guardian</h1>
+<p style="text-align: center;">Welcome! Please configure your bee monitoring device.</p>
+<form action="/" method="get">
+  <label for="sysname">System Name</label>
+  <input type="text" id="sysname" name="sysname" value="BeeMonitor-1">
+
+  <label for="ssid">WiFi Network (SSID)</label>
+  <select id="ssid" name="ssid"></select>
+  <button type="button" onclick="scanWifi()">Scan for Networks</button>
+
+  <label for="password">WiFi Password</label>
+  <input type="password" id="password" name="password">
+
+  <hr>
+  <h3>Device Access</h3>
+  <label for="username">Username</label>
+  <input type="text" id="username" name="username" value="admin">
+  <label for="user_password">Password</label>
+  <input type="password" id="user_password" name="user_password">
+
+  <input type="submit" value="Save and Reboot">
+</form>
+<a href="/hardware.html" class="hardware-link">View Hardware Info</a>
+<div class="footer">
+    <img src="/bee1.jpg" class="bee-img">
+    <img src="/bee2.jpg" class="bee-img">
+    <p>Copyright by Frank Currie (2025)</p>
+</div>
+</div>
+<script>
+function scanWifi() {
+  var ssidSelect = document.getElementById("ssid");
+  ssidSelect.innerHTML = "<option>Scanning...</option>";
+  fetch('/scan.json')
+    .then(response => response.json())
+    .then(data => {
+      ssidSelect.innerHTML = "";
+      data.forEach(function(ssid) {
+        var option = document.createElement("option");
+        option.text = ssid;
+        ssidSelect.add(option);
+      });
+    });
+}
+window.onload = scanWifi;
+</script>
+</body>
+</html>

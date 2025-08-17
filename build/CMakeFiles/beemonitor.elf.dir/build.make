@@ -205,6 +205,7 @@ beemonitor.elf: esp-idf/esp-tflite-micro/libesp-tflite-micro.a
 beemonitor.elf: esp-idf/espressif__esp-nn/libespressif__esp-nn.a
 beemonitor.elf: esp-idf/u8g2-hal-esp-idf/libu8g2-hal-esp-idf.a
 beemonitor.elf: esp-idf/u8g2/libu8g2.a
+beemonitor.elf: esp-idf/spiffs/libspiffs.a
 beemonitor.elf: esp-idf/xtensa/libxtensa.a
 beemonitor.elf: esp-idf/esp_driver_gpio/libesp_driver_gpio.a
 beemonitor.elf: esp-idf/esp_pm/libesp_pm.a

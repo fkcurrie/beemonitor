@@ -1,0 +1,21 @@
+Command: make -j 14 all
+/home/frank/Projects/beemonitor/beemonitor/main/provisioning.c: In function 'serve_file':
+/home/frank/Projects/beemonitor/beemonitor/main/provisioning.c:62:26: error: implicit declaration of function 'read'; did you mean 'fread'? [-Wimplicit-function-declaration]
+   62 |     while ((bytes_read = read(fd, buffer, sizeof(buffer))) > 0) {
+      |                          ^~~~
+      |                          fread
+/home/frank/Projects/beemonitor/beemonitor/main/provisioning.c:64:13: error: implicit declaration of function 'close'; did you mean 'pclose'? [-Wimplicit-function-declaration]
+   64 |             close(fd);
+      |             ^~~~~
+      |             pclose
+/home/frank/Projects/beemonitor/beemonitor/main/provisioning.c: In function 'start_provisioning_server':
+/home/frank/Projects/beemonitor/beemonitor/main/provisioning.c:147:5: error: implicit declaration of function 'wifi_init_softap' [-Wimplicit-function-declaration]
+  147 |     wifi_init_softap();
+      |     ^~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/provisioning.c: At top level:
+/home/frank/Projects/beemonitor/beemonitor/main/provisioning.c:25:13: warning: 'event_handler' defined but not used [-Wunused-function]
+   25 | static void event_handler(void* arg, esp_event_base_t event_base,
+      |             ^~~~~~~~~~~~~
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:132: esp-idf/main/CMakeFiles/__idf_main.dir/provisioning.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:6501: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

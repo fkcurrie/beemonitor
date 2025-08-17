@@ -1,0 +1,118 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel0 \b \fs36 The First Five Minutes: How to Onboard Your AI Co-Developer for Project Success\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\i Before you ask an AI to write a single line of code, a five-minute investment in three key files\u8212-GEMINI.md, TODO.md, and CHANGELOG.md\u8212-can mean the difference between a frustrating series of corrections and a streamlined, professional development workflow.}\par}
+{\pard \qc \f0 \sa180 \li0 \fi0 \emdash\emdash\emdash\emdash\emdash\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Artificial intelligence is rapidly evolving from a novel tool into a genuine co-developer. Powerful AI assistants like Google\u8217's Gemini CLI can now write complex code, debug hardware interfaces, and configure entire projects. But like any new team member, they require a proper onboarding. You wouldn\u8217't ask a human developer to start on a new project without a briefing; you shouldn\u8217't expect an AI to either. Asking an AI to simply \u8220"vibe code\u8221" without context is a recipe for failure. To unlock its true potential, you must first provide a clear and comprehensive project brief.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 I\u8217'm currently developing a solar-powered bee monitor using an ESP32-S3, a camera, and a machine learning model. The complete project, including all the documentation files discussed here, is available on {\field{\*\fldinst{HYPERLINK "https://github.com/fkcurrie/beemonitor"}}{\fldrslt{\ul
+GitHub
+}}}
+. From the very beginning\u8212-before writing any C++ or configuring a single build file\u8212-I established a simple documentation framework. This \u8220"setup-first\u8221" methodology ensures my AI collaborator has the necessary context to function as a true partner, not just a code generator.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 This framework consists of three essential files that should be created in the first five minutes of any new project.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel2 \b \fs28 1. {\field{\*\fldinst{HYPERLINK "https://github.com/fkcurrie/beemonitor/blob/main/GEMINI.md"}}{\fldrslt{\ul
+{\f1 GEMINI.md}
+}}}
+: The AI\u8217's Project Charter\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The {\f1 GEMINI.md} file is the single most critical document in your project. It is the AI\u8217's project charter, its source of truth. Creating this file {\i first} ensures that every subsequent action the AI takes is grounded in the specific realities of your project. It eliminates guesswork and prevents the generation of generic, ill-fitting code that wastes valuable time.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 For my Bee Monitor, the {\f1 GEMINI.md} immediately establishes the technical landscape:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\b General Instructions:}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 ## 1. General Instructions\line
+\line
+*   **Operational Note:** Do not apologize. When an error occurs, focus directly on analyzing the problem and presenting a solution.\line
+*   **Prioritize Research:** Before starting any investigation, creating new code, or answering technical questions, **always** use the `google_web_search` tool.\line
+*   **Verify with Official Documentation:** The ESP-IDF and ESP32-S3 documentation from Espressif are the primary sources of truth.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 This section sets the operational ground rules for the AI. It\u8217's akin to setting team communication standards, ensuring the AI\u8217's behavior\u8212-like its focus on solutions over apologies\u8212-aligns with my preferences and improves the efficiency of our collaboration.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\b Hardware Specifications:}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 ## 4. Hardware Specifications\line
+\line
+*   **Microcontroller:** ESP32-S3 (Dual-core Xtensa LX7, 240 MHz, 512KB SRAM)\line
+*   **Development Board:** ESP32-S3-DevKitC-1\line
+*   **Connected Peripherals:**\line
+    *   **Camera:** OV5640 or similar (via DVP interface).\line
+    *   **Display:** 0.96" I2C OLED Display (SSD306).\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 In embedded systems, specifics are everything. This section prevents the AI from hallucinating incorrect pin numbers or using drivers for the wrong hardware\u8212-a common and frustrating problem that can lead to hours of debugging.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\b Development Environment:}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 ## 5. Development Environment & Toolchain\line
+\line
+*   **Framework:** ESP-IDF\line
+*   **Key Commands:**\line
+    *   **Build:** `idf.py build`\line
+    *   **Flash:** `idf.py -p [Your Serial Port] flash`\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 This ensures the AI uses the correct build commands and understands the project\u8217's ecosystem. It prevents it from suggesting commands for the wrong build system (e.g., {\f1 make} instead of {\f1 idf.py}) or using Arduino conventions in an ESP-IDF project.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel2 \b \fs28 2. {\field{\*\fldinst{HYPERLINK "https://github.com/fkcurrie/beemonitor/blob/main/TODO.md"}}{\fldrslt{\ul
+{\f1 TODO.md}
+}}}
+: The Strategic Roadmap\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 A {\f1 TODO.md} file, when created at the project\u8217's inception, is more than a simple checklist; it\u8217's a strategic plan. It forces you to think through the development arc, break down the work into logical, sequential tasks, and establish clear priorities. This provides a roadmap that both you and your AI can follow, preventing \u8220"yak shaving\u8221" and keeping the project focused on the most valuable features first.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 From day one, my {\f1 TODO.md} laid out the path from setup to deployment:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 # Bee Monitor - To-Do List\line
+\line
+### Next Steps\line
+- [ ] Set up ESP-IDF development environment.\line
+- [ ] Create basic project structure.\line
+- [ ] Implement camera driver.\line
+- [ ] Add TensorFlow Lite Micro component.\line
+- [ ] Implement the OLED display driver and UI.\line
+- [ ] Set up a complete provisioning web server.\line
+- [ ] Train a custom bee detection model.\line
+\line
+### Completed Tasks\line
+(empty)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 With this roadmap in place, I can start a development session with a simple, powerful instruction: \u8220"Let\u8217's work on the next item in the {\f1 TODO.md}.\u8221" As tasks are completed and moved to the \u8220"Completed Tasks\u8221" section, it provides a satisfying sense of progress and keeps the AI\u8217's context up-to-date on what has already been accomplished.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel2 \b \fs28 3. {\field{\*\fldinst{HYPERLINK "https://github.com/fkcurrie/beemonitor/blob/main/CHANGELOG.md"}}{\fldrslt{\ul
+{\f1 CHANGELOG.md}
+}}}
+: The Project\u8217's Professional Ledger\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Creating a {\f1 CHANGELOG.md} from the beginning establishes a professional tone for the project. It signals that this is a serious endeavor where changes are tracked, and progress is documented. For long-term projects, it\u8217's an invaluable tool for debugging, as it provides a clear timeline of when specific changes were introduced. If a bug appears, the changelog can help narrow down the set of commits that might have caused it.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 This file is based on the {\field{\*\fldinst{HYPERLINK "https://keepachangelog.com/en/1.0.0/"}}{\fldrslt{\ul
+Keep a Changelog
+}}}
+ standard, which provides a clear and consistent format for logging changes. It also adheres to {\field{\*\fldinst{HYPERLINK "https://semver.org/"}}{\fldrslt{\ul
+Semantic Versioning (SemVer)
+}}}
+, where version numbers (e.g., {\f1 1.2.3}) convey meaning about the nature of the changes.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 My {\f1 CHANGELOG.md} was initialized with the project\u8217's birth:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 # Changelog\line
+\line
+All notable changes to this project will be documented in this file.\line
+\line
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),\line
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).\line
+\line
+## [Unreleased]\line
+\line
+### Added\line
+- New features that are not yet part of a release.\line
+\line
+## [0.1.0] - 2025-08-12\line
+\line
+### Added\line
+- Created `GEMINI.md` with project specifications.\line
+- Created `TODO.md` to track project tasks.\line
+- Created `CHANGELOG.md` to track project history.\line
+- Installed and configured the ESP-IDF development environment.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 By instructing the AI to update the {\f1 [Unreleased]} section after every significant milestone, I ensure the project\u8217's evolution is always clearly documented. When it\u8217's time for a new release, I can simply change {\f1 [Unreleased]} to the new version number and date.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel2 \b \fs28 Conclusion: Onboard Your AI, Then Code\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The temptation to jump straight into coding is strong, but when working with an AI co-developer, this is a mistake. The five minutes it takes to create {\f1 GEMINI.md}, {\f1 TODO.md}, and {\f1 CHANGELOG.md} is the most valuable investment you can make. This \u8220"setup-first\u8221" approach is an act of professional discipline that pays for itself almost immediately.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 It provides the essential context, direction, and professional structure that allows your AI to perform at its best. It elevates the AI from a simple tool to a true collaborator, leading to a faster, more efficient, and ultimately more successful development experience.\par}
+{\pard \qc \f0 \sa180 \li0 \fi0 \emdash\emdash\emdash\emdash\emdash\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel2 \b \fs28 Key Files Mentioned in This Article:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab {\b Project Repository:} {\field{\*\fldinst{HYPERLINK "https://github.com/fkcurrie/beemonitor"}}{\fldrslt{\ul
+https://github.com/fkcurrie/beemonitor
+}}}
+\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab {\b AI Project Brief:} {\field{\*\fldinst{HYPERLINK "https://github.com/fkcurrie/beemonitor/blob/main/GEMINI.md"}}{\fldrslt{\ul
+{\f1 GEMINI.md}
+}}}
+\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab {\b Project Roadmap:} {\field{\*\fldinst{HYPERLINK "https://github.com/fkcurrie/beemonitor/blob/main/TODO.md"}}{\fldrslt{\ul
+{\f1 TODO.md}
+}}}
+\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab {\b Development History:} {\field{\*\fldinst{HYPERLINK "https://github.com/fkcurrie/beemonitor/blob/main/CHANGELOG.md"}}{\fldrslt{\ul
+{\f1 CHANGELOG.md}
+}}}
+\sa180\par}
+}

@@ -31,6 +31,8 @@ A complete Bill of Materials with specific part numbers is available in the `GEM
 | DATA     | GPIO5        |
 | CLK      | GPIO4        |
 
+*Note: The I2C bus (GPIO4 & GPIO5) is shared between the camera's configuration interface (SCCB) and the OLED display.*
+
 ### Camera (DVP)
 
 | Adafruit OV5640 Pin | ESP32-S3-DevKitC-1 Pin | Purpose                |

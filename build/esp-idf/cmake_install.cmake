@@ -607,3 +607,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/frank/Projects/beemonitor/beemonitor/build/esp-idf/spiffs_image/cmake_install.cmake")
+endif()
+

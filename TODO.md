@@ -24,7 +24,6 @@ The project is currently focused on implementing a modern, styled web interface 
 - [x] Add TensorFlow Lite Micro component.
 - [x] Add placeholder person detection model.
 - [x] Integrated Wi-Fi, HTTP client, and deep-sleep logic.
-- [x] Set up Wokwi simulation environment.
 
 ## Future Development
 - [ ] Implement the "tripwire" counting logic.

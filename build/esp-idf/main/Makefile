@@ -175,30 +175,6 @@ __idf_main/fast:
 	cd /home/frank/Projects/beemonitor/beemonitor/build && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/build
 .PHONY : __idf_main/fast
 
-__/__/bee1.jpg.obj: __/__/bee1.jpg.S.obj
-.PHONY : __/__/bee1.jpg.obj
-
-# target to build an object file
-__/__/bee1.jpg.S.obj:
-	cd /home/frank/Projects/beemonitor/beemonitor/build && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/__/__/bee1.jpg.S.obj
-.PHONY : __/__/bee1.jpg.S.obj
-
-__/__/bee2.jpg.obj: __/__/bee2.jpg.S.obj
-.PHONY : __/__/bee2.jpg.obj
-
-# target to build an object file
-__/__/bee2.jpg.S.obj:
-	cd /home/frank/Projects/beemonitor/beemonitor/build && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/__/__/bee2.jpg.S.obj
-.PHONY : __/__/bee2.jpg.S.obj
-
-__/__/style.css.obj: __/__/style.css.S.obj
-.PHONY : __/__/style.css.obj
-
-# target to build an object file
-__/__/style.css.S.obj:
-	cd /home/frank/Projects/beemonitor/beemonitor/build && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/__/__/style.css.S.obj
-.PHONY : __/__/style.css.S.obj
-
 beemonitor.obj: beemonitor.cpp.obj
 .PHONY : beemonitor.obj
 
@@ -332,9 +308,6 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... __idf_main"
-	@echo "... __/__/bee1.jpg.obj"
-	@echo "... __/__/bee2.jpg.obj"
-	@echo "... __/__/style.css.obj"
 	@echo "... beemonitor.obj"
 	@echo "... beemonitor.i"
 	@echo "... beemonitor.s"

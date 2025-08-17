@@ -24,6 +24,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "esp-idf/app_update/otadata-flash_args.in"
   "esp-idf/bootloader/bootloader-flash_args.in"
   "esp-idf/partition_table/partition-table-flash_args.in"
+  "esp-idf/spiffs_image/spiffs-flash_args.in"
   "flash_args"
   "flash_args.in"
   "flasher_args.json.in"
@@ -32,6 +33,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/frank/Projects/beemonitor/beemonitor/components/esp-tflite-micro/idf_component.yml"
   "/home/frank/Projects/beemonitor/beemonitor/components/esp32-camera/CMakeLists.txt"
   "/home/frank/Projects/beemonitor/beemonitor/components/esp32-camera/idf_component.yml"
+  "/home/frank/Projects/beemonitor/beemonitor/components/spiffs_image/CMakeLists.txt"
   "/home/frank/Projects/beemonitor/beemonitor/components/u8g2-hal-esp-idf/CMakeLists.txt"
   "/home/frank/Projects/beemonitor/beemonitor/components/u8g2/CMakeLists.txt"
   "/home/frank/Projects/beemonitor/beemonitor/main/CMakeLists.txt"
@@ -458,6 +460,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "esp-idf/u8g2/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/u8g2-hal-esp-idf/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/main/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "esp-idf/spiffs_image/spiffs-flash_args.in"
+  "spiffs-flash_args"
+  "esp-idf/spiffs_image/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -615,4 +620,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "esp-idf/u8g2/CMakeFiles/__idf_u8g2.dir/DependInfo.cmake"
   "esp-idf/u8g2-hal-esp-idf/CMakeFiles/__idf_u8g2-hal-esp-idf.dir/DependInfo.cmake"
   "esp-idf/main/CMakeFiles/__idf_main.dir/DependInfo.cmake"
+  "esp-idf/spiffs_image/CMakeFiles/spiffs_spiffs_bin.dir/DependInfo.cmake"
+  "esp-idf/spiffs_image/CMakeFiles/spiffs-flash.dir/DependInfo.cmake"
+  "esp-idf/spiffs_image/CMakeFiles/encrypted-spiffs-flash.dir/DependInfo.cmake"
   )

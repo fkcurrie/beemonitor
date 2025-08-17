@@ -1,0 +1,30 @@
+Command: make -j 14 all
+Configuration Report               
+ ───────────────────────────────── 
+   Parser Version: 1               
+   Verbosity: default              
+   Status: Finished successfully   
+                                   
+ ───────────────────────────────── 
+/home/frank/Projects/beemonitor/beemonitor/main/provisioning.c:82:18: error: redefinition of 'bee2_jpg_handler'
+   82 | static esp_err_t bee2_jpg_handler(httpd_req_t *req)
+      |                  ^~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/provisioning.c:68:18: note: previous definition of 'bee2_jpg_handler' with type 'esp_err_t(httpd_req_t *)' {aka 'int(struct httpd_req *)'}
+   68 | static esp_err_t bee2_jpg_handler(httpd_req_t *req)
+      |                  ^~~~~~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/provisioning.c:89:26: error: redefinition of 'bee2_jpg_uri'
+   89 | static const httpd_uri_t bee2_jpg_uri = {
+      |                          ^~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/provisioning.c:75:26: note: previous definition of 'bee2_jpg_uri' with type 'httpd_uri_t' {aka 'const struct httpd_uri'}
+   75 | static const httpd_uri_t bee2_jpg_uri = {
+      |                          ^~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/provisioning.c:229:26: error: 'hardware_uri' defined but not used [-Werror=unused-const-variable=]
+  229 | static const httpd_uri_t hardware_uri = {
+      |                          ^~~~~~~~~~~~
+/home/frank/Projects/beemonitor/beemonitor/main/provisioning.c:201:26: error: 'main_uri' defined but not used [-Werror=unused-const-variable=]
+  201 | static const httpd_uri_t main_uri = {
+      |                          ^~~~~~~~
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:147: esp-idf/main/CMakeFiles/__idf_main.dir/provisioning.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:6479: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

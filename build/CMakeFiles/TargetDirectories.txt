@@ -925,3 +925,12 @@
 /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main/CMakeFiles/install.dir
 /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main/CMakeFiles/install/local.dir
 /home/frank/Projects/beemonitor/beemonitor/build/esp-idf/main/CMakeFiles/install/strip.dir
+/home/frank/Projects/beemonitor/beemonitor/build/esp-idf/spiffs_image/CMakeFiles/spiffs_spiffs_bin.dir
+/home/frank/Projects/beemonitor/beemonitor/build/esp-idf/spiffs_image/CMakeFiles/spiffs-flash.dir
+/home/frank/Projects/beemonitor/beemonitor/build/esp-idf/spiffs_image/CMakeFiles/encrypted-spiffs-flash.dir
+/home/frank/Projects/beemonitor/beemonitor/build/esp-idf/spiffs_image/CMakeFiles/edit_cache.dir
+/home/frank/Projects/beemonitor/beemonitor/build/esp-idf/spiffs_image/CMakeFiles/rebuild_cache.dir
+/home/frank/Projects/beemonitor/beemonitor/build/esp-idf/spiffs_image/CMakeFiles/list_install_components.dir
+/home/frank/Projects/beemonitor/beemonitor/build/esp-idf/spiffs_image/CMakeFiles/install.dir
+/home/frank/Projects/beemonitor/beemonitor/build/esp-idf/spiffs_image/CMakeFiles/install/local.dir
+/home/frank/Projects/beemonitor/beemonitor/build/esp-idf/spiffs_image/CMakeFiles/install/strip.dir

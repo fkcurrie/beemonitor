@@ -2150,6 +2150,45 @@ __idf_main/fast:
 	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/build
 .PHONY : __idf_main/fast
 
+#=============================================================================
+# Target rules for targets named spiffs_spiffs_bin
+
+# Build rule for target.
+spiffs_spiffs_bin: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 spiffs_spiffs_bin
+.PHONY : spiffs_spiffs_bin
+
+# fast build rule for target.
+spiffs_spiffs_bin/fast:
+	$(MAKE) $(MAKESILENT) -f esp-idf/spiffs_image/CMakeFiles/spiffs_spiffs_bin.dir/build.make esp-idf/spiffs_image/CMakeFiles/spiffs_spiffs_bin.dir/build
+.PHONY : spiffs_spiffs_bin/fast
+
+#=============================================================================
+# Target rules for targets named spiffs-flash
+
+# Build rule for target.
+spiffs-flash: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 spiffs-flash
+.PHONY : spiffs-flash
+
+# fast build rule for target.
+spiffs-flash/fast:
+	$(MAKE) $(MAKESILENT) -f esp-idf/spiffs_image/CMakeFiles/spiffs-flash.dir/build.make esp-idf/spiffs_image/CMakeFiles/spiffs-flash.dir/build
+.PHONY : spiffs-flash/fast
+
+#=============================================================================
+# Target rules for targets named encrypted-spiffs-flash
+
+# Build rule for target.
+encrypted-spiffs-flash: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 encrypted-spiffs-flash
+.PHONY : encrypted-spiffs-flash
+
+# fast build rule for target.
+encrypted-spiffs-flash/fast:
+	$(MAKE) $(MAKESILENT) -f esp-idf/spiffs_image/CMakeFiles/encrypted-spiffs-flash.dir/build.make esp-idf/spiffs_image/CMakeFiles/encrypted-spiffs-flash.dir/build
+.PHONY : encrypted-spiffs-flash/fast
+
 project_elf_src_esp32s3.obj: project_elf_src_esp32s3.c.obj
 .PHONY : project_elf_src_esp32s3.obj
 
@@ -2210,6 +2249,7 @@ help:
 	@echo "... encrypted-flash"
 	@echo "... encrypted-otadata-flash"
 	@echo "... encrypted-partition-table-flash"
+	@echo "... encrypted-spiffs-flash"
 	@echo "... erase-otadata"
 	@echo "... erase_flash"
 	@echo "... erase_otadata"
@@ -2236,6 +2276,8 @@ help:
 	@echo "... size"
 	@echo "... size-components"
 	@echo "... size-files"
+	@echo "... spiffs-flash"
+	@echo "... spiffs_spiffs_bin"
 	@echo "... uf2"
 	@echo "... uf2-app"
 	@echo "... __idf_app_trace"

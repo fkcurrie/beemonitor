@@ -4,6 +4,7 @@ This document provides guidelines for the AI assistant to effectively contribute
 
 ## 1. General Instructions
 
+*   **Operational Note:** Do not apologize. When an error occurs, focus directly on analyzing the problem and presenting a solution.
 *   **Prioritize Research:** Before starting any investigation, creating new code, or answering technical questions, **always** use the `google_web_search` tool. Focus searches on official documentation and reputable community sources.
 *   **Verify with Official Documentation:** The ESP-IDF and ESP32-S3 documentation from Espressif are the primary sources of truth. Cross-reference information against them.
 *   **Analyze Existing Code:** Before writing new code, always analyze the existing project structure, style, and patterns.
@@ -77,7 +78,7 @@ This is the recommended list of components for building the project hardware.
 *   **Component Manager:** ESP-IDF Component Manager.
 *   **Key Libraries:**
     *   `espressif/esp32-camera`
-    *   `Edge Impulse C++ Library` (contains the FOMO model)
+    *   `espressif/esp-tflite-micro` (the project uses the TensorFlow Lite for Microcontrollers component for inference)
     *   `espressif/esp-nn`
     *   `espressif/esp-http-client`
     *   `U8g2` (or similar OLED driver)
@@ -87,12 +88,3 @@ This is the recommended list of components for building the project hardware.
 *   **Task Tracking (`TODO.md`):** This file contains a list of tasks to be completed. When starting a new task, please consult this file. When a task is completed, it should be marked as done.
 *   **Change History (`CHANGELOG.md`):** All significant changes to the codebase, such as new features, bug fixes, or refactoring, must be documented in this file under the `[Unreleased]` section.
 
-## 9. Wokwi Simulation Guidelines
-
-When creating or modifying a `diagram.json` file for Wokwi simulation, the following conventions must be strictly followed to ensure correctness:
-
-*   **Part `id`:** The `id` assigned to a part in the `parts` array is the prefix used for its pins in the `connections` array. For example, if a part has `"id": "oled"`, its pins must be referenced as `"oled:PIN_NAME"`.
-*   **Pin Names:** Pin names are specific to the Wokwi part and must be verified from the official Wokwi documentation or a known working example. Do not assume standard pin names (e.g., `VCC` vs. `VIN` vs. `3V3`).
-    *   **`wokwi-ssd1306` Correct Pins:** `GND`, `3V3`, `DATA`, `CLK`.
-*   **Numbered Pins:** For boards like the ESP32-S3-DevKitC-1 that have multiple pins with the same label (e.g., GND, 3V3), a suffix must be used (e.g., `esp:GND.1`, `esp:3V3.1`).
-*   **GPIO Pins:** GPIO pins on the main board are referenced directly by their number (e.g., `esp:5`, `esp:4`).

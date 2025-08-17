@@ -2,4 +2,5 @@
 0x0 bootloader/bootloader.bin
 0x8000 partition_table/partition-table.bin
 0xf000 ota_data_initial.bin
+0x320000 spiffs.bin
 0x20000 beemonitor.bin
