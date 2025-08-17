@@ -307,7 +307,29 @@ static bool obtain_time(void)
     return true;
 }
 
+void forward_data_to_edge_impulse() {
+    camera_fb_t *fb = esp_camera_fb_get();
+    if (!fb) {
+        ESP_LOGE(TAG, "Camera capture failed");
+        return;
+    }
+
+    // Start of the JSON payload
+    printf("{\"protected\": {\"ver\": \"v1\", \"alg\": \"none\", \"iat\": 1609459200}, \"signature\": \"\", \"payload\": {\"device_name\": \"beemonitor\", \"device_type\": \"ESP32\", \"interval_ms\": 0, \"sensors\": [{\"name\": \"image\", \"units\": \"rgba\"}], \"values\": [\"");
+
+    // Write the image data as a hex string
+    for (size_t i = 0; i < fb->len; i++) {
+        printf("%02x", fb->buf[i]);
+    }
+
+    // End of the JSON payload
+    printf("\"]}}\n");
+
+    esp_camera_fb_return(fb);
+}
+
 extern "C" void app_main(void)
+
 {
     // Initialize NVS
     esp_err_t ret = nvs_flash_init();

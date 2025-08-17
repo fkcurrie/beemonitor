@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Added a data forwarding mode to send images to Edge Impulse for training.
 - Added a map to the web interface for location selection.
 - Implemented storing and retrieving of latitude and longitude.
 - Added SNTP time synchronization.
