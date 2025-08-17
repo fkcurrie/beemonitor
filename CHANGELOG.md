@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Created a Python script to validate the Edge Impulse project setup via API.
 - Implemented on-device data uploader to send images directly to Edge Impulse over WiFi.
 - Added a map to the web interface for location selection.
 - Implemented storing and retrieving of latitude and longitude.

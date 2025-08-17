@@ -5,6 +5,11 @@
 The project is currently focused on implementing a modern, styled web interface for the provisioning server. The basic provisioning functionality is in place, but the work to embed the themed assets (CSS, images) is ongoing and has encountered linker errors.
 
 ### Next Steps
+- [ ] Manually create a new Edge Impulse project with the correct "Object Detection" type.
+- [ ] Update the `edge_impulse.keys` file with the new API and HMAC keys.
+- [ ] Validate the new project setup using the provided script.
+- [ ] Implement the on-device trigger to start uploading data to Edge Impulse.
+- [ ] Parse sunrise/sunset times and implement the logic to control the device's active hours.
 - [ ] Resolve the linker errors related to embedding web assets (`style.css`, `bee1.jpg`, `bee2.jpg`).
 - [ ] Successfully build the firmware with the complete, styled web interface.
 - [ ] Continue with the plan to replace the placeholder AI model.
