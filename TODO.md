@@ -23,7 +23,7 @@ The project is currently focused on implementing a modern, styled web interface 
 - [x] Implement camera driver.
 - [x] Add TensorFlow Lite Micro component.
 - [x] Add placeholder person detection model.
-- [x] Integrated Wi-Fi, HTTP client, and deep-sleep logic.
+- [x] Integrated Wi-Fi and HTTP client for continuous data reporting.
 
 ## Future Development
 - [ ] Implement the "tripwire" counting logic.

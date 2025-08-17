@@ -45,8 +45,8 @@ static const char *TAG = "main";
 #define SERVER_URL     "http://your-server-ip/api/bee-counts"
 
 // RTC memory to store counts between deep sleep cycles
-RTC_DATA_ATTR static int bee_in_count = 0;
-RTC_DATA_ATTR static int bee_out_count = 0;
+static int bee_in_count = 0;
+static int bee_out_count = 0;
 
 
 static camera_config_t camera_config = {
@@ -262,44 +262,47 @@ extern "C" void app_main(void)
     // Setup TensorFlow Lite
     setup_tflite();
 
-    // Capture and process one image
-    camera_fb_t *fb = esp_camera_fb_get();
-    if (!fb) {
-        ESP_LOGE(TAG, "Camera capture failed");
-    } else {
-        if (input->bytes == fb->len) {
-            memcpy(input->data.uint8, fb->buf, fb->len);
-
-            if (interpreter->Invoke() != kTfLiteOk) {
-                ESP_LOGE(TAG, "Invoke failed");
-            }
-
-            TfLiteTensor* output = interpreter->output(0);
-            int person_score = output->data.uint8[1];
-            int no_person_score = output->data.uint8[0];
-
-            ESP_LOGI(TAG, "Person score: %d, No person score: %d", person_score, no_person_score);
-            
-            // This is where you would implement your tripwire logic.
-            // For now, we'll just increment the counters as a test.
-            if (person_score > 200) { // Threshold for person detection
-                bee_in_count++;
-                bee_out_count++;
-            }
-
+    // Main application loop
+    while(1) {
+        // Capture and process one image
+        camera_fb_t *fb = esp_camera_fb_get();
+        if (!fb) {
+            ESP_LOGE(TAG, "Camera capture failed");
         } else {
-            ESP_LOGE(TAG, "Input tensor size (%d) does not match frame buffer size (%d)", input->bytes, fb->len);
+            if (input->bytes == fb->len) {
+                memcpy(input->data.uint8, fb->buf, fb->len);
+
+                if (interpreter->Invoke() != kTfLiteOk) {
+                    ESP_LOGE(TAG, "Invoke failed");
+                }
+
+                TfLiteTensor* output = interpreter->output(0);
+                int person_score = output->data.uint8[1];
+                int no_person_score = output->data.uint8[0];
+
+                ESP_LOGI(TAG, "Person score: %d, No person score: %d", person_score, no_person_score);
+                
+                // This is where you would implement your tripwire logic.
+                // For now, we'll just increment the counters as a test.
+                if (person_score > 200) { // Threshold for person detection
+                    bee_in_count++;
+                    bee_out_count++;
+                }
+
+            } else {
+                ESP_LOGE(TAG, "Input tensor size (%d) does not match frame buffer size (%d)", input->bytes, fb->len);
+            }
+            esp_camera_fb_return(fb);
         }
-        esp_camera_fb_return(fb);
+        
+        // Send data to server
+        send_data_to_server(bee_in_count, bee_out_count);
+
+        // Update the display
+        display_update_counts(bee_in_count, bee_out_count);
+
+        // Wait for 30 seconds before the next cycle
+        ESP_LOGI(TAG, "Waiting for 30 seconds");
+        vTaskDelay(30000 / portTICK_PERIOD_MS);
     }
-    
-    // Send data to server
-    send_data_to_server(bee_in_count, bee_out_count);
-
-    // Update the display
-    display_update_counts(bee_in_count, bee_out_count);
-
-    // Go to deep sleep for 30 seconds
-    ESP_LOGI(TAG, "Entering deep sleep for 30 seconds");
-    esp_deep_sleep(1000000LL * 30);
 }

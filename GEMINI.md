@@ -15,16 +15,13 @@ This document provides guidelines for the AI assistant to effectively contribute
 
 ## 3. Application Logic
 
-*   **Power Management:** The device is battery-powered and must conserve energy. It will use a deep-sleep architecture.
-    *   The ESP32 will wake up on a 30-second timer.
-    *   On wake, it will connect to Wi-Fi, capture an image, run the AI model, update counts, send data to the server, and update the local display.
-    *   It will then enter deep sleep to minimize power consumption.
-*   **State Persistence:** Bee counts must be preserved during deep sleep. They will be stored in RTC memory using the `RTC_DATA_ATTR` attribute.
+*   **Power Management:** The device is battery-powered and solar-charged, designed for continuous operation during daylight hours. It will actively monitor bee activity from sunrise to sunset. A light sensor or a real-time clock (RTC) could be used to control the active period, but for now, the device will run continuously as long as it has power.
 *   **Counting Logic:** The system will use two virtual "tripwire" lines in the camera's field of view to determine bee direction.
     *   Crossing outer line then inner line = "entering".
     *   Crossing inner line then outer line = "leaving".
 *   **Data Handling:**
-    *   Every 30 seconds (on wake-up), it will send the current counts as a JSON payload (e.g., `{"in": 12, "out": 15}`) via an HTTP POST request to a user-specified server endpoint.
+    *   The device will continuously capture images, run the AI model, and update bee counts.
+    *   Every 30 seconds, it will send the latest counts as a JSON payload (e.g., `{"in": 12, "out": 15}`) via an HTTP POST request to a user-specified server endpoint.
     *   The local counts will be displayed on a small I2C OLED screen.
 
 ## 4. Hardware Specifications

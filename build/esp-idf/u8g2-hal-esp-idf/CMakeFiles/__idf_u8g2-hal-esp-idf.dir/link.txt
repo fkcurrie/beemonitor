@@ -1,2 +1,0 @@
-/home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc libu8g2-hal-esp-idf.a "CMakeFiles/__idf_u8g2-hal-esp-idf.dir/src/u8g2_esp32_hal.c.obj"
-/home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib libu8g2-hal-esp-idf.a

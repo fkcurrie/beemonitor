@@ -1,4 +1,0 @@
-Command: make -j 14 all
-/home/frank/Projects/beemonitor/beemonitor/main/beemonitor.cpp:63:1: warning: missing initializer for member 'camera_config_t::sccb_i2c_port' [-Wmissing-field-initializers]
-   63 | };
-      | ^

@@ -1,2 +1,0 @@
-/home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc libcxx.a CMakeFiles/__idf_cxx.dir/cxx_exception_stubs.cpp.obj CMakeFiles/__idf_cxx.dir/cxx_guards.cpp.obj CMakeFiles/__idf_cxx.dir/cxx_init.cpp.obj
-/home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib libcxx.a

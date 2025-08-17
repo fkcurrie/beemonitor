@@ -1,8 +1,0 @@
-Command: make -j 14 all
-Configuration Report               
- ───────────────────────────────── 
-   Parser Version: 1               
-   Verbosity: default              
-   Status: Finished successfully   
-                                   
- ───────────────────────────────── 

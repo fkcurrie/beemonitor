@@ -1,2 +1,0 @@
-/home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc libesp_https_server.a CMakeFiles/__idf_esp_https_server.dir/src/https_server.c.obj
-/home/frank/.espressif/tools/xtensa-esp-elf/esp-15.1.0_20250607/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib libesp_https_server.a

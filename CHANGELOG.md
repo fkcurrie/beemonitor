@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Modified the power management strategy from a deep-sleep model to a continuous-operation model to allow for uninterrupted bee counting.
+
 ### Removed
 - Removed all Wokwi simulator-related files and configurations from the project.
 
@@ -16,8 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added configuration for system name, username, and password.
 - Added version and copyright splash screen to the OLED display on boot.
 - Implemented OLED display support using the U8g2 library to show bee counts.
-- Integrated Wi-Fi, HTTP client, and deep-sleep functionality into the main application.
-- Storing bee counts in RTC memory to persist across deep sleep cycles.
+- Integrated Wi-Fi and HTTP client for continuous data reporting.
 
 ### Fixed
 - Resolved the "app partition is too small" build error by correcting the flash size in `sdkconfig`.
