@@ -84,4 +84,5 @@ This is the recommended list of components for building the project hardware.
 
 *   **Task Tracking (`TODO.md`):** This file contains a list of tasks to be completed. When starting a new task, please consult this file. When a task is completed, it should be marked as done.
 *   **Change History (`CHANGELOG.md`):** All significant changes to the codebase, such as new features, bug fixes, or refactoring, must be documented in this file under the `[Unreleased]` section.
+*   **Documentation Alignment:** After any significant change, ensure all relevant documentation files (especially `README.md`, `TODO.md`, and `CHANGELOG.md`) are reviewed and updated to reflect the current state of the project.
 
