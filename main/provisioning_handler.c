@@ -27,6 +27,12 @@ static esp_err_t config_handler(httpd_req_t *req)
         if (httpd_query_key_value(buf, "lon", param, sizeof(param)) == ESP_OK) {
             cfg.longitude = atof(param);
         }
+        if (httpd_query_key_value(buf, "ei_api_key", param, sizeof(param)) == ESP_OK) {
+            strcpy(cfg.ei_api_key, param);
+        }
+        if (httpd_query_key_value(buf, "ei_hmac_key", param, sizeof(param)) == ESP_OK) {
+            strcpy(cfg.ei_hmac_key, param);
+        }
 
         config_save(&cfg);
 

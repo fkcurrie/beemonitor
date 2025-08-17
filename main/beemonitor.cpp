@@ -11,6 +11,8 @@
 #include "esp_event.h"
 #include "esp_http_client.h"
 #include "esp_sleep.h"
+#include "mbedtls/sha256.h"
+#include "mbedtls/md.h"
 #include "cJSON.h"
 #include "esp_sntp.h"
 #include "esp_netif_sntp.h"
@@ -328,6 +330,105 @@ void forward_data_to_edge_impulse() {
     esp_camera_fb_return(fb);
 }
 
+static bool obtain_time(void)
+{
+    initialize_sntp();
+    // wait for time to be set
+    int retry = 0;
+    const int retry_count = 10;
+    while (sntp_get_sync_status() == SNTP_SYNC_STATUS_RESET && ++retry < retry_count) {
+        ESP_LOGI(TAG, "Waiting for system time to be set... (%d/%d)", retry, retry_count);
+        vTaskDelay(2000 / portTICK_PERIOD_MS);
+    }
+    if (retry == retry_count) {
+        return false;
+    }
+    return true;
+}
+
+static esp_err_t upload_to_edge_impulse(const app_config_t *config, camera_fb_t *fb) {
+    
+    // Create JSON payload
+    cJSON *root = cJSON_CreateObject();
+    cJSON *protected_obj = cJSON_CreateObject();
+    cJSON_AddStringToObject(protected_obj, "ver", "v1");
+    cJSON_AddStringToObject(protected_obj, "alg", "HS256");
+    cJSON_AddNumberToObject(protected_obj, "iat", time(NULL));
+    cJSON_AddItemToObject(root, "protected", protected_obj);
+    cJSON_AddStringToObject(root, "signature", "");
+    
+    cJSON *payload_obj = cJSON_CreateObject();
+    cJSON_AddStringToObject(payload_obj, "device_name", config->system_name);
+    cJSON_AddStringToObject(payload_obj, "device_type", "ESP32");
+    cJSON_AddNumberToObject(payload_obj, "interval_ms", 0);
+    cJSON *sensors_array = cJSON_CreateArray();
+    cJSON *sensor_obj = cJSON_CreateObject();
+    cJSON_AddStringToObject(sensor_obj, "name", "image");
+    cJSON_AddStringToObject(sensor_obj, "units", "rgba");
+    cJSON_AddItemToArray(sensors_array, sensor_obj);
+    cJSON_AddItemToObject(payload_obj, "sensors", sensors_array);
+    
+    // Convert image to hex string
+    char *hex_buffer = (char *)malloc(fb->len * 2 + 1);
+    for (size_t i = 0; i < fb->len; i++) {
+        sprintf(hex_buffer + i * 2, "%02x", fb->buf[i]);
+    }
+    
+    cJSON *values_array = cJSON_CreateArray();
+    cJSON_AddItemToArray(values_array, cJSON_CreateString(hex_buffer));
+    cJSON_AddItemToObject(payload_obj, "values", values_array);
+    cJSON_AddItemToObject(root, "payload", payload_obj);
+    
+    char *json_string = cJSON_PrintUnformatted(root);
+    
+    // Calculate HMAC-SHA256 signature
+    unsigned char signature[32];
+    mbedtls_md_context_t ctx;
+    mbedtls_md_type_t md_type = MBEDTLS_MD_SHA256;
+    
+    mbedtls_md_init(&ctx);
+    mbedtls_md_setup(&ctx, mbedtls_md_info_from_type(md_type), 1);
+    mbedtls_md_hmac_starts(&ctx, (const unsigned char *)config->ei_hmac_key, strlen(config->ei_hmac_key));
+    mbedtls_md_hmac_update(&ctx, (const unsigned char *)json_string, strlen(json_string));
+    mbedtls_md_hmac_finish(&ctx, signature);
+    mbedtls_md_free(&ctx);
+    
+    char hex_signature[65];
+    for (int i = 0; i < 32; i++) {
+        sprintf(hex_signature + i * 2, "%02x", signature[i]);
+    }
+    
+    // Add signature to JSON
+    cJSON_ReplaceItemInObject(root, "signature", cJSON_CreateString(hex_signature));
+    char *final_json_string = cJSON_PrintUnformatted(root);
+
+    // Send HTTP POST request
+    esp_http_client_config_t http_config = {};
+    http_config.url = "https://ingestion.edgeimpulse.com/api/training/data";
+    http_config.event_handler = _http_event_handler;
+    esp_http_client_handle_t client = esp_http_client_init(&http_config);
+    esp_http_client_set_method(client, HTTP_METHOD_POST);
+    esp_http_client_set_header(client, "Content-Type", "application/json");
+    esp_http_client_set_header(client, "x-api-key", config->ei_api_key);
+    esp_http_client_set_header(client, "x-signature", hex_signature);
+    esp_http_client_set_post_field(client, final_json_string, strlen(final_json_string));
+    
+    esp_err_t err = esp_http_client_perform(client);
+    if (err == ESP_OK) {
+        ESP_LOGI(TAG, "Data uploaded successfully, status = %d", esp_http_client_get_status_code(client));
+    } else {
+        ESP_LOGE(TAG, "Data upload failed: %s", esp_err_to_name(err));
+    }
+    
+    esp_http_client_cleanup(client);
+    cJSON_Delete(root);
+    free(hex_buffer);
+    free(json_string);
+    free(final_json_string);
+    
+    return err;
+}
+
 extern "C" void app_main(void)
 
 {
@@ -432,5 +533,15 @@ extern "C" void app_main(void)
         // Wait for 30 seconds before the next cycle
         ESP_LOGI(TAG, "Waiting for 30 seconds");
         vTaskDelay(30000 / portTICK_PERIOD_MS);
+
+        // Upload a sample every 2 minutes
+        if (time(NULL) % 120 == 0) {
+            ESP_LOGI(TAG, "Uploading sample to Edge Impulse...");
+            camera_fb_t *fb_upload = esp_camera_fb_get();
+            if (fb_upload) {
+                upload_to_edge_impulse(&app_config, fb_upload);
+                esp_camera_fb_return(fb_upload);
+            }
+        }
     }
 }

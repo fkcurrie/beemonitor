@@ -64,6 +64,18 @@ esp_err_t config_load(app_config_t *config) {
         config->longitude = 0; // Default value
     }
 
+    required_size = sizeof(config->ei_api_key);
+    err = nvs_get_str(nvs_handle, "ei_api_key", config->ei_api_key, &required_size);
+    if (err != ESP_OK) {
+        ESP_LOGW(TAG, "Failed to get ei_api_key: %s", esp_err_to_name(err));
+    }
+
+    required_size = sizeof(config->ei_hmac_key);
+    err = nvs_get_str(nvs_handle, "ei_hmac_key", config->ei_hmac_key, &required_size);
+    if (err != ESP_OK) {
+        ESP_LOGW(TAG, "Failed to get ei_hmac_key: %s", esp_err_to_name(err));
+    }
+
     nvs_close(nvs_handle);
     return ESP_OK;
 }
@@ -111,6 +123,16 @@ esp_err_t config_save(const app_config_t *config) {
     err = nvs_set_i64(nvs_handle, "longitude", lon_val);
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "Failed to set longitude: %s", esp_err_to_name(err));
+    }
+
+    err = nvs_set_str(nvs_handle, "ei_api_key", config->ei_api_key);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to set ei_api_key: %s", esp_err_to_name(err));
+    }
+
+    err = nvs_set_str(nvs_handle, "ei_hmac_key", config->ei_hmac_key);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to set ei_hmac_key: %s", esp_err_to_name(err));
     }
 
     err = nvs_commit(nvs_handle);
