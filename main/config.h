@@ -13,6 +13,8 @@ typedef struct {
     char system_name[32];
     char username[32];
     char password[32];
+    double latitude;
+    double longitude;
 } app_config_t;
 
 esp_err_t config_load(app_config_t *config);

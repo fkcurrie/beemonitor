@@ -15,6 +15,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include "provisioning.h"
+#include "provisioning_handler.c"
 
 static const char *TAG = "provisioning";
 
@@ -72,20 +73,17 @@ static esp_err_t serve_file(httpd_req_t *req, const char* filepath, const char* 
     return ESP_OK;
 }
 
-static esp_err_t main_page_handler(httpd_req_t *req) { return serve_file(req, "/index.html", "text/html"); }
 static esp_err_t style_css_handler(httpd_req_t *req) { return serve_file(req, "/style.css", "text/css"); }
 static esp_err_t bee1_jpg_handler(httpd_req_t *req) { return serve_file(req, "/bee1.jpg", "image/jpeg"); }
 static esp_err_t bee2_jpg_handler(httpd_req_t *req) { return serve_file(req, "/bee2.jpg", "image/jpeg"); }
 static esp_err_t hardware_page_handler(httpd_req_t *req) { return serve_file(req, "/hardware.html", "text/html"); }
-
-
 static esp_err_t scan_json_handler(httpd_req_t *req)
 {
     // ... (scan logic remains the same)
     return ESP_OK;
 }
 
-static const httpd_uri_t main_uri = { .uri = "/", .method = HTTP_GET, .handler = main_page_handler };
+static const httpd_uri_t main_uri = { .uri = "/", .method = HTTP_GET, .handler = config_handler };
 static const httpd_uri_t style_css_uri = { .uri = "/style.css", .method = HTTP_GET, .handler = style_css_handler };
 static const httpd_uri_t bee1_jpg_uri = { .uri = "/bee1.jpg", .method = HTTP_GET, .handler = bee1_jpg_handler };
 static const httpd_uri_t bee2_jpg_uri = { .uri = "/bee2.jpg", .method = HTTP_GET, .handler = bee2_jpg_handler };

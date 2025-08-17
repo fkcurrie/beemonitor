@@ -11,6 +11,9 @@
 #include "esp_event.h"
 #include "esp_http_client.h"
 #include "esp_sleep.h"
+#include "cJSON.h"
+#include "esp_sntp.h"
+#include "esp_netif_sntp.h"
 #include "display.h"
 #include "version.h"
 
@@ -222,6 +225,88 @@ void setup_tflite() {
     input = interpreter->input(0);
 }
 
+
+
+static esp_err_t get_sunrise_sunset(double lat, double lon, char* sunrise, char* sunset) {
+    char url[200];
+    sprintf(url, "http://api.sunrise-sunset.org/json?lat=%f&lng=%f&formatted=0", lat, lon);
+
+    esp_http_client_config_t config = {};
+    config.url = url;
+    config.event_handler = _http_event_handler;
+    esp_http_client_handle_t client = esp_http_client_init(&config);
+    
+    char *buffer = (char*) malloc(2048);
+    esp_http_client_set_method(client, HTTP_METHOD_GET);
+    esp_err_t err = esp_http_client_open(client, 0);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to open HTTP connection: %s", esp_err_to_name(err));
+        free(buffer);
+        return err;
+    }
+    int content_length = esp_http_client_fetch_headers(client);
+    int total_read_len = 0;
+    int read_len;
+    while (total_read_len < content_length) {
+        read_len = esp_http_client_read(client, buffer + total_read_len, content_length - total_read_len);
+        if (read_len <= 0) {
+            ESP_LOGE(TAG, "Error reading data");
+            break;
+        }
+        total_read_len += read_len;
+    }
+    buffer[total_read_len] = 0;
+
+    cJSON *root = cJSON_Parse(buffer);
+    if (root) {
+        cJSON *results = cJSON_GetObjectItem(root, "results");
+        if (results) {
+            cJSON *sunrise_json = cJSON_GetObjectItem(results, "sunrise");
+            cJSON *sunset_json = cJSON_GetObjectItem(results, "sunset");
+            if (sunrise_json && sunset_json) {
+                strcpy(sunrise, sunrise_json->valuestring);
+                strcpy(sunset, sunset_json->valuestring);
+            }
+        }
+        cJSON_Delete(root);
+    }
+    
+    esp_http_client_close(client);
+    esp_http_client_cleanup(client);
+    free(buffer);
+    return ESP_OK;
+}
+
+void time_sync_notification_cb(struct timeval *tv)
+{
+    ESP_LOGI(TAG, "Time synchronized");
+}
+
+static void initialize_sntp(void)
+{
+    ESP_LOGI(TAG, "Initializing SNTP");
+    esp_sntp_setoperatingmode(SNTP_OPMODE_POLL);
+    esp_sntp_setservername(0, "pool.ntp.org");
+    sntp_set_time_sync_notification_cb(time_sync_notification_cb);
+    esp_sntp_init();
+}
+
+static bool obtain_time(void)
+{
+    initialize_sntp();
+    // wait for time to be set
+    int retry = 0;
+    const int retry_count = 10;
+    while (sntp_get_sync_status() == SNTP_SYNC_STATUS_RESET && ++retry < retry_count) {
+        ESP_LOGI(TAG, "Waiting for system time to be set... (%d/%d)", retry, retry_count);
+        vTaskDelay(2000 / portTICK_PERIOD_MS);
+    }
+    if (retry == retry_count) {
+        return false;
+    }
+    return true;
+}
+
 extern "C" void app_main(void)
 {
     // Initialize NVS
@@ -256,6 +341,18 @@ extern "C" void app_main(void)
         while(1) { vTaskDelay(1000 / portTICK_PERIOD_MS); }
     }
 
+    if (!obtain_time()) {
+        ESP_LOGE(TAG, "Failed to obtain time, restarting.");
+        esp_restart();
+    }
+
+    char sunrise_str[30], sunset_str[30];
+    if (get_sunrise_sunset(app_config.latitude, app_config.longitude, sunrise_str, sunset_str) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to get sunrise/sunset times, restarting.");
+        esp_restart();
+    }
+    ESP_LOGI(TAG, "Sunrise: %s, Sunset: %s", sunrise_str, sunset_str);
+
     // Initialize Camera
     ESP_ERROR_CHECK(esp_camera_init(&camera_config));
 
@@ -264,6 +361,15 @@ extern "C" void app_main(void)
 
     // Main application loop
     while(1) {
+        time_t now;
+        struct tm timeinfo;
+        time(&now);
+        localtime_r(&now, &timeinfo);
+
+        // Check if it's daylight
+        // For now, we'll just run continuously.
+        // The logic to parse sunrise/sunset and compare with current time will be added later.
+
         // Capture and process one image
         camera_fb_t *fb = esp_camera_fb_get();
         if (!fb) {

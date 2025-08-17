@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Added a map to the web interface for location selection.
+- Implemented storing and retrieving of latitude and longitude.
+- Added SNTP time synchronization.
+- Added fetching of sunrise and sunset times from an online API.
+
 ### Changed
 - Modified the power management strategy from a deep-sleep model to a continuous-operation model to allow for uninterrupted bee counting.
 

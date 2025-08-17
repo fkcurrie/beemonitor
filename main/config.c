@@ -47,6 +47,23 @@ esp_err_t config_load(app_config_t *config) {
         ESP_LOGW(TAG, "Failed to get password: %s", esp_err_to_name(err));
     }
 
+    int64_t lat_val, lon_val;
+    err = nvs_get_i64(nvs_handle, "latitude", &lat_val);
+    if (err == ESP_OK) {
+        config->latitude = (double)lat_val / 1000000.0;
+    } else {
+        ESP_LOGW(TAG, "Failed to get latitude: %s", esp_err_to_name(err));
+        config->latitude = 0; // Default value
+    }
+
+    err = nvs_get_i64(nvs_handle, "longitude", &lon_val);
+    if (err == ESP_OK) {
+        config->longitude = (double)lon_val / 1000000.0;
+    } else {
+        ESP_LOGW(TAG, "Failed to get longitude: %s", esp_err_to_name(err));
+        config->longitude = 0; // Default value
+    }
+
     nvs_close(nvs_handle);
     return ESP_OK;
 }
@@ -82,6 +99,18 @@ esp_err_t config_save(const app_config_t *config) {
     err = nvs_set_str(nvs_handle, "password", config->password);
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "Failed to set password: %s", esp_err_to_name(err));
+    }
+
+    int64_t lat_val = (int64_t)(config->latitude * 1000000.0);
+    err = nvs_set_i64(nvs_handle, "latitude", lat_val);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to set latitude: %s", esp_err_to_name(err));
+    }
+
+    int64_t lon_val = (int64_t)(config->longitude * 1000000.0);
+    err = nvs_set_i64(nvs_handle, "longitude", lon_val);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to set longitude: %s", esp_err_to_name(err));
     }
 
     err = nvs_commit(nvs_handle);
