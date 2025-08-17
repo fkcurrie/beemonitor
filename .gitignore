@@ -1,0 +1,22 @@
+# ESP-IDF build output
+build/
+
+# Log files
+*.log
+
+# Binaries
+*.bin
+
+# Zipped components
+*.zip
+
+# SDK configuration backups
+sdkconfig.old
+sdkconfig.new
+
+# IDE files
+.vscode/
+.idea/
+*.user
+*.lock
+.DS_Store
