@@ -6,10 +6,9 @@ This project aims to create a self-sustaining, AI-powered bee monitor using an E
 
 *   **On-Device Configuration:** On first boot, the device starts a Wi-Fi Access Point (`BeeMonitor-Setup`) and hosts a web page to configure Wi-Fi credentials, system name, and user access.
 *   **AI-Powered Counting:** Uses a TensorFlow Lite Micro model to detect bees in real-time.
-*   **Power Efficient:** Leverages the ESP32-S3's deep sleep capabilities to run on battery and solar power.
+*   **Continuous Operation:** Designed for continuous operation during daylight hours, powered by a solar panel and LiPo battery.
 *   **Data Logging:** Sends bee counts to a server via HTTP POST every 30 seconds.
 *   **Local Display:** Shows the current bee counts and system status on a small OLED display.
-*   **State Persistence:** Bee counts are stored in RTC memory to survive deep sleep cycles.
 
 ## Hardware Requirements
 
