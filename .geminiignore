@@ -1,0 +1,3 @@
+# Ignore PlatformIO build artifacts and libraries
+.pio/
+/include/version.h

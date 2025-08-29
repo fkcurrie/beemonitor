@@ -1,0 +1,8 @@
+.pio
+/include/version.h
+
+# Sensitive Files
+edgeimpulse.key
+data/key.pem
+data/cert.pem
+src/main.cpp.v*
