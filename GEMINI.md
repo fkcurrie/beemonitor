@@ -63,6 +63,10 @@ This file contains all the configuration, history, and workflow details for the 
 7.  After a reboot, the kernel downgrade was confirmed to have resolved the issue, enabling reliable flashing and communication.
 
 ## Development Workflow
+- **File Editing Strategy:** The `replace` tool has proven to be unreliable and must be avoided. To modify a file, always use the following "read-modify-write" procedure:
+    1. Read the entire file content using the `read_file` tool.
+    2. Construct the complete, corrected content of the file in memory.
+    3. Use the `write_file` tool to overwrite the old file with the new, correct version. This is the only approved method for file modification.
 - **PlatformIO Verbose Output:** Always use the `-v` flag with `platformio run` commands for detailed output.
 - **Serial Monitor:** To access the serial port, run `platformio device monitor` in a separate terminal. Attempting to run it in the same terminal as other commands may result in a `termios.error`.
 - **Iterative Development Cycle:** Implement features in larger, more complete chunks. To streamline testing, temporarily disable authentication mechanisms. Validate the running application's behavior and output using `curl` against the device's web server endpoints.

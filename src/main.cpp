@@ -13,6 +13,14 @@
 #include <Adafruit_SSD1306.h>
 #include <LittleFS.h>
 #include "version.h"
+
+// Optional config file for development (excluded from git)
+#ifdef __has_include
+    #if __has_include("../config.h")
+        #include "../config.h"
+        #define HAS_CONFIG_H
+    #endif
+#endif
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
 #include <esp_task_wdt.h>
@@ -20,30 +28,21 @@
 #include "esp32-hal-cpu.h" // For CPU Temperature
 #include "esp_camera.h"
 #include <ArduinoOTA.h>
+#include "soc/soc.h"
+#include "soc/rtc_cntl_reg.h"
 
-// --- Camera Configuration ---
-#define CAMERA_MODEL_CUSTOM
-#define PWDN_GPIO_NUM     -1
-#define RESET_GPIO_NUM    -1
-#define XCLK_GPIO_NUM     14
-#define SIOD_GPIO_NUM     8
-#define SIOC_GPIO_NUM     9
-#define Y9_GPIO_NUM       1
-#define Y8_GPIO_NUM       2
-#define Y7_GPIO_NUM       3
-#define Y6_GPIO_NUM       4
-#define Y5_GPIO_NUM       5
-#define Y4_GPIO_NUM       10
-#define Y3_GPIO_NUM       11
-#define Y2_GPIO_NUM       12
-#define VSYNC_GPIO_NUM    6
-#define HREF_GPIO_NUM     7
-#define PCLK_GPIO_NUM     13
+// --- Camera Configuration (Freenove ESP32-S3-WROOM FNK0085 with OV3660) ---
+#define CAMERA_MODEL_ESP32S3_EYE
+#include "camera_pins.h"
 
 bool initCamera() {
+    Serial.println("=== CAMERA INIT DEBUG START ===");
+    Serial.println("DEBUG: Step 1 - Creating camera config struct...");
     camera_config_t config;
+    Serial.println("DEBUG: Step 2 - Setting LEDC channel/timer...");
     config.ledc_channel = LEDC_CHANNEL_0;
     config.ledc_timer = LEDC_TIMER_0;
+    Serial.println("DEBUG: Step 3 - Setting data pins...");
     config.pin_d0 = Y2_GPIO_NUM;
     config.pin_d1 = Y3_GPIO_NUM;
     config.pin_d2 = Y4_GPIO_NUM;
@@ -52,6 +51,7 @@ bool initCamera() {
     config.pin_d5 = Y7_GPIO_NUM;
     config.pin_d6 = Y8_GPIO_NUM;
     config.pin_d7 = Y9_GPIO_NUM;
+    Serial.println("DEBUG: Step 4 - Setting control pins...");
     config.pin_xclk = XCLK_GPIO_NUM;
     config.pin_pclk = PCLK_GPIO_NUM;
     config.pin_vsync = VSYNC_GPIO_NUM;
@@ -60,26 +60,58 @@ bool initCamera() {
     config.pin_sccb_scl = SIOC_GPIO_NUM;
     config.pin_pwdn = PWDN_GPIO_NUM;
     config.pin_reset = RESET_GPIO_NUM;
+    Serial.println("DEBUG: Step 5 - Setting basic config parameters...");
     config.xclk_freq_hz = 20000000;
+    config.frame_size = FRAMESIZE_SVGA;
     config.pixel_format = PIXFORMAT_JPEG;
-    config.frame_size = FRAMESIZE_VGA; // 640x480
-    config.jpeg_quality = 12; // 0-63 lower number means higher quality
-    config.fb_count = 1;
     config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
+    config.fb_location = CAMERA_FB_IN_PSRAM;
+    config.jpeg_quality = 12;
+    config.fb_count = 1;
+    Serial.println("DEBUG: Step 6 - Checking PSRAM availability...");
+    esp_task_wdt_reset(); // Reset watchdog before PSRAM check
+    
+    if(psramFound()){
+        Serial.printf("DEBUG: PSRAM detected (%d bytes). Using PSRAM settings.\n", ESP.getPsramSize());
+        config.jpeg_quality = 12;
+        config.fb_count = 1;
+        config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
+        config.frame_size = FRAMESIZE_SVGA;
+    } else {
+        Serial.println("WARN: PSRAM not detected. Using DRAM settings.");
+        config.frame_size = FRAMESIZE_CIF;
+        config.fb_count = 1;
+        config.fb_location = CAMERA_FB_IN_DRAM;
+    }
 
-    // Camera init
+    Serial.println("DEBUG: Step 7 - About to call esp_camera_init()...");
+    esp_task_wdt_reset(); // Reset watchdog before camera init
     esp_err_t err = esp_camera_init(&config);
+    Serial.println("DEBUG: Step 8 - esp_camera_init() completed!");
+    esp_task_wdt_reset(); // Reset watchdog after camera init
+    
     if (err != ESP_OK) {
-        Serial.printf("ERROR: Camera init failed with error 0x%x\n", err);
+        Serial.printf("ERROR: Camera init failed with error 0x%x (%s)\n", err, esp_err_to_name(err));
         return false;
     }
     
     sensor_t * s = esp_camera_sensor_get();
-    // initial sensors are flipped vertically and colors are a bit saturated
-    if (s->id.PID == OV5640_PID) {
-        s->set_vflip(s, 1); // flip it back
-        s->set_brightness(s, 1); // up the blightness just a bit
-        s->set_saturation(s, -2); // lower the saturation
+    if (s) {
+        Serial.printf("INFO: Camera initialized successfully - PID: 0x%02x\n", s->id.PID);
+        Serial.printf("DEBUG: Camera settings - Quality: %d, Framesize: %d, Format: %d\n", 
+                      s->status.quality, s->status.framesize, config.pixel_format);
+        
+        // Skip OV3660 sensor corrections temporarily to debug capture issues
+        if (s->id.PID == OV3660_PID) {
+            Serial.println("DEBUG: Detected OV3660 - Using minimal configuration for debugging");
+            Serial.println("INFO: Skipping all sensor corrections to test basic capture");
+        } else {
+            Serial.printf("WARN: Unexpected sensor PID: 0x%02x (Expected OV3660: 0x%02x)\n", 
+                         s->id.PID, OV3660_PID);
+        }
+    } else {
+        Serial.println("ERROR: Failed to get camera sensor");
+        return false;
     }
 
     return true;
@@ -165,6 +197,9 @@ const char* ap_ssid = "BeeCounter-Setup";
 AsyncWebServer server(80);
 AsyncEventSource events("/events");
 Preferences preferences;
+
+// --- Camera State ---
+bool cameraInitialized = false;
 
 // --- Authentication ---
 #define SESSION_COOKIE_NAME "BEE_SESSION"
@@ -255,6 +290,26 @@ String getPublicIP() {
     return "N/A";
 }
 
+String getReadableTimezone(const String& posixTz) {
+    // Convert POSIX timezone strings to human-readable names
+    if (posixTz.startsWith("EST5EDT")) return "Eastern Time (US & Canada)";
+    if (posixTz.startsWith("CST6CDT")) return "Central Time (US & Canada)";
+    if (posixTz.startsWith("MST7MDT")) return "Mountain Time (US & Canada)";
+    if (posixTz.startsWith("PST8PDT")) return "Pacific Time (US & Canada)";
+    if (posixTz.startsWith("AKST9AKDT")) return "Alaska Time";
+    if (posixTz.startsWith("HST10")) return "Hawaii Time";
+    if (posixTz.startsWith("GMT0BST")) return "Greenwich Mean Time (UK)";
+    if (posixTz.startsWith("CET-1CEST")) return "Central European Time";
+    if (posixTz.startsWith("EET-2EEST")) return "Eastern European Time";
+    if (posixTz.startsWith("JST-9")) return "Japan Standard Time";
+    if (posixTz.startsWith("AEST-10AEDT")) return "Australian Eastern Time";
+    if (posixTz.startsWith("NZST-12NZDT")) return "New Zealand Time";
+    if (posixTz == "UTC" || posixTz == "" || posixTz.length() == 0) return "Coordinated Universal Time (UTC)";
+    
+    // If no match found, return cleaned up version
+    return posixTz;
+}
+
 // --- Performance Monitoring ---
 unsigned long performanceUpdateInterval = 2000; // Default to 2 seconds
 
@@ -316,27 +371,44 @@ String getLoginPageTemplate(const String& title, const String& body) {
 
 // --- Main Setup & Loop ---
 void setup() {
+    // Disable brownout detector to prevent watchdog timeouts during camera init
+    WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0);
+    
     Serial.begin(115200);
+    delay(1000); // Give serial time to initialize
+    Serial.println("=== SETUP DEBUG START ===");
+    Serial.println("DEBUG: Step A - Serial initialized");
+    
     strip.begin();
     strip.setBrightness(20);
     strip.setPixelColor(0, COLOR_CONFIG_MODE);
     strip.show();
+    Serial.println("DEBUG: Step B - LED strip initialized");
 
     // --- Initialize Watchdog Timer ---
-    esp_task_wdt_init(10, true); // 10-second timeout, panic on timeout
+    Serial.println("DEBUG: Step C - Initializing watchdog (30 second timeout)...");
+    esp_task_wdt_init(30, true); // Increase to 30-second timeout
     esp_task_wdt_add(NULL); // Subscribe the setup/loop task
+    Serial.println("DEBUG: Step D - Watchdog initialized");
 
     // --- Create CPU Idle Tasks ---
+    Serial.println("DEBUG: Step E - Creating CPU idle tasks...");
     xTaskCreatePinnedToCore(idle_task_0, "idle_0", 1024, NULL, 0, NULL, 0);
     xTaskCreatePinnedToCore(idle_task_1, "idle_1", 1024, NULL, 0, NULL, 1);
+    esp_task_wdt_reset(); // Reset watchdog after task creation
+    Serial.println("DEBUG: Step F - CPU idle tasks created");
 
     // --- Initialize OLED ---
+    Serial.println("DEBUG: Step G - Initializing OLED display...");
     if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { 
-        // Address 0x3C for 128x64
+        Serial.println("WARNING: OLED display initialization failed");
     }
     updateOLED("BeeCounter v" + String(APP_VERSION), "Booting...");
+    esp_task_wdt_reset(); // Reset watchdog after OLED
+    Serial.println("DEBUG: Step H - OLED display initialized");
 
     // --- Initialize LittleFS ---
+    Serial.println("DEBUG: Step I - Initializing LittleFS...");
     if(!LittleFS.begin()){
         updateOLED("LITTLEFS Error", "Failed to mount file system");
         Serial.println("FATAL: Failed to mount LittleFS. Halting.");
@@ -352,17 +424,47 @@ void setup() {
             return; // Halt on error
         }
     }
+    esp_task_wdt_reset(); // Reset watchdog after LittleFS
+    Serial.println("DEBUG: Step J - LittleFS initialized");
 
-    // --- Initialize Camera ---
-    // if (!initCamera()) {
-    //     updateOLED("CAMERA Error", "Failed to init.", "Rebooting in 5s...");
-    //     Serial.println("FATAL: Failed to initialize camera. Rebooting in 5 seconds.");
-    //     delay(5000);
-    //     ESP.restart();
-    // } else {
-    //     updateOLED("Camera OK", "Starting Wi-Fi...");
-    //     Serial.println("Camera initialized successfully.");
-    // }
+    // --- Initialize Preferences with Defaults ---
+    Serial.println("DEBUG: Step K - Initializing preferences...");
+    preferences.begin("beecounter", false); // Open in read-write mode
+    if (!preferences.isKey("deviceName")) {
+        preferences.putString("deviceName", "BeeCounter");
+        Serial.println("Set default deviceName: BeeCounter");
+    }
+    if (!preferences.isKey("isDefaultPass")) {
+        preferences.putBool("isDefaultPass", true);
+        preferences.putString("adminPass", ""); // Empty default password
+        Serial.println("Set default password settings");
+    }
+    if (!preferences.isKey("loginFails")) {
+        preferences.putInt("loginFails", 0);
+        preferences.putULong("lastFailTime", 0);
+        Serial.println("Set default login failure tracking");
+    }
+    if (!preferences.isKey("timezone")) {
+        preferences.putString("timezone", "EST5EDT,M3.2.0,M11.1.0");
+        Serial.println("Set default timezone");
+    }
+    preferences.end();
+    esp_task_wdt_reset(); // Reset watchdog after preferences
+    Serial.println("DEBUG: Step L - Preferences initialization complete.");
+
+    // --- Initialize Camera (With Extensive Debugging) ---
+    Serial.println("DEBUG: Step M - About to start camera initialization...");
+    esp_task_wdt_reset(); // Reset watchdog before camera init
+    cameraInitialized = initCamera();
+    esp_task_wdt_reset(); // Reset watchdog after camera init
+    if (!cameraInitialized) {
+        Serial.println("WARNING: Camera initialization failed. System will continue without camera functionality.");
+        updateOLED("Camera Failed", "See Serial", "Starting Wi-Fi...");
+    } else {
+        updateOLED("Camera OK", "Starting Wi-Fi...");
+        Serial.println("SUCCESS: Camera initialized successfully!");
+    }
+    Serial.println("DEBUG: Step N - Camera initialization section complete.");
 
     // --- Wi-Fi Event Handlers ---
     WiFi.onEvent([](WiFiEvent_t event, WiFiEventInfo_t info){
@@ -386,40 +488,73 @@ void setup() {
         }
     });
 
-    // --- Hardcoded Wi-Fi Credentials for Debugging ---
-    const char* ssid = "LandE";
-    const char* password = "LachlanEamon";
-
     // --- Station Mode ---
+    String ssid = preferences.getString("ssid", "");
+    String password = preferences.getString("password", "");
+    
+    #if defined(HAS_CONFIG_H) && defined(DEBUG_WIFI_ENABLED)
+        // Use config.h credentials for development
+        ssid = WIFI_SSID;
+        password = WIFI_PASSWORD;
+        Serial.println("DEBUG: Using config.h WiFi credentials");
+    #endif
+    
+    if (ssid.length() == 0) {
+        Serial.println("No Wi-Fi credentials stored, entering configuration mode");
+        startConfigurationMode();
+        return;
+    }
     currentState = WIFI_CONNECTING;
     strip.setPixelColor(0, COLOR_CONNECTING);
     strip.show();
-    updateOLED("Connecting to:", ssid);
-    Serial.printf("Attempting to connect to SSID: %s\n", ssid);
+    updateOLED("Connecting to:", ssid.c_str());
+    Serial.printf("Attempting to connect to SSID: %s\n", ssid.c_str());
     
+    Serial.println("DEBUG: Step N.0 - Setting WiFi mode and beginning connection...");
     WiFi.mode(WIFI_STA);
-    WiFi.begin(ssid, password);
+    esp_task_wdt_reset(); // Reset watchdog after WiFi mode
+    Serial.println("DEBUG: Step N.0.1 - WiFi mode set, calling WiFi.begin()...");
+    WiFi.begin(ssid.c_str(), password.c_str());
+    esp_task_wdt_reset(); // Reset watchdog after WiFi.begin()
+    Serial.println("DEBUG: Step N.0.2 - WiFi.begin() called, entering wait loop...");
 
     unsigned long startTime = millis();
     Serial.println("Waiting for Wi-Fi connection...");
+    int loop_count = 0;
     while (millis() - startTime < 15000) {
+        loop_count++;
+        if (loop_count % 50 == 0) { // Print debug every 5 seconds (50 * 100ms = 5000ms)
+            Serial.printf("DEBUG: WiFi wait loop iteration %d, status: %d, elapsed: %lu ms\n", 
+                         loop_count, WiFi.status(), millis() - startTime);
+            esp_task_wdt_reset(); // Reset watchdog periodically
+        }
+        
         if (WiFi.status() == WL_CONNECTED) {
+            Serial.println("DEBUG: Step N.0.3 - WiFi status shows connected!");
             currentState = WIFI_CONNECTED;
             updateOLED("Connected!", "Waiting for IP...");
             Serial.println("Wi-Fi status is WL_CONNECTED. Waiting for IP.");
             
             // The SYSTEM_EVENT_STA_GOT_IP event will handle the IP address logging.
             // We just need to wait for the IP to be assigned.
+            Serial.println("DEBUG: Step N.1 - Waiting for IP address assignment...");
             unsigned long ip_wait_start = millis();
             while (WiFi.localIP() == IPAddress(0,0,0,0) && (millis() - ip_wait_start < 5000)) {
+                Serial.println("DEBUG: Step N.2 - Still waiting for IP...");
+                esp_task_wdt_reset(); // Reset watchdog during IP wait
                 delay(100);
             }
+            
+            Serial.println("DEBUG: Step N.3 - IP wait loop completed");
 
             if (WiFi.localIP() != IPAddress(0,0,0,0)) {
+                Serial.println("DEBUG: Step N.4 - IP address confirmed, proceeding to server setup");
                 currentState = IP_ACQUIRED;
                 updateOLED("IP Acquired:", WiFi.localIP().toString(), "Starting server...");
-                Serial.println("IP address acquired. Starting server and services.");
+                Serial.println("DEBUG: Step O - IP address acquired. Starting server setup...");
+                esp_task_wdt_reset(); // Reset watchdog before server setup
                 
+                Serial.println("DEBUG: Step P - Setting up authentication endpoints...");
                 server.on("/login", HTTP_GET, handleLoginPage);
                 server.on("/login", HTTP_POST, handleDoLogin);
                 server.on("/changepass", HTTP_GET, handleChangePassPage);
@@ -433,6 +568,7 @@ void setup() {
                 server.on("/", HTTP_GET, handleMainPage);
                 server.on("/train", HTTP_GET, handleTrainPage);
                 server.on("/observability", HTTP_GET, handleObservabilityPage);
+                server.on("/admin", HTTP_GET, handleAdminPage);
                 server.on("/api/set-refresh-rate", HTTP_POST, handleSetRefreshRate);
                 server.on("/api/camera-settings", HTTP_POST, handleSetCameraSettings);
                 server.on("/api/capture/start", HTTP_POST, handleCaptureStart);
@@ -494,6 +630,104 @@ void setup() {
                     // We just need the POST request to trigger the UI feedback.
                 });
 
+                Serial.println("DEBUG: Step Q - Setting up camera endpoints...");
+                esp_task_wdt_reset(); // Reset watchdog before camera endpoints
+                
+                // --- Camera Endpoints (integrated from esp32camsd) ---
+                server.on("/capture", HTTP_GET, [](AsyncWebServerRequest *request){
+                    Serial.println("=== CAMERA CAPTURE REQUEST ===");
+                    Serial.printf("Camera initialized: %s\n", cameraInitialized ? "YES" : "NO");
+                    
+                    if (!cameraInitialized) {
+                        Serial.println("ERROR: Camera not initialized for /capture");
+                        request->send(503, "application/json", "{\"error\":\"Camera not initialized\"}");
+                        return;
+                    }
+                    
+                    Serial.println("DEBUG: Attempting to capture frame for /capture...");
+                    // Camera capture endpoint - returns JPEG image
+                    camera_fb_t * fb = esp_camera_fb_get();
+                    if (!fb) {
+                        Serial.println("ERROR: Camera capture failed for /capture");
+                        request->send(500, "text/plain", "Camera capture failed");
+                        return;
+                    }
+                    
+                    Serial.printf("SUCCESS: Captured frame for /capture - %dx%d, %u bytes\n", 
+                                 fb->width, fb->height, fb->len);
+                    
+                    AsyncWebServerResponse *response = request->beginResponse_P(200, "image/jpeg", fb->buf, fb->len);
+                    response->addHeader("Content-Disposition", "inline; filename=capture.jpg");
+                    response->addHeader("Access-Control-Allow-Origin", "*");
+                    request->send(response);
+                    esp_camera_fb_return(fb);
+                    Serial.println("SUCCESS: Camera capture served successfully");
+                });
+
+                server.on("/status", HTTP_GET, [](AsyncWebServerRequest *request){
+                    if (!cameraInitialized) {
+                        String json = "{\"camera_initialized\":false,\"error\":\"Camera not available\"}";
+                        request->send(200, "application/json", json);
+                        return;
+                    }
+                    
+                    // Camera status endpoint - returns JSON with camera info
+                    sensor_t * s = esp_camera_sensor_get();
+                    if (!s) {
+                        request->send(500, "application/json", "{\"error\":\"Camera sensor not available\"}");
+                        return;
+                    }
+                    
+                    String json = "{";
+                    json += "\"camera_initialized\":true,";
+                    json += "\"framesize\":" + String(s->status.framesize) + ",";
+                    json += "\"quality\":" + String(s->status.quality) + ",";
+                    json += "\"brightness\":" + String(s->status.brightness) + ",";
+                    json += "\"contrast\":" + String(s->status.contrast) + ",";
+                    json += "\"saturation\":" + String(s->status.saturation) + ",";
+                    json += "\"sensor_id\":\"0x" + String(s->id.PID, HEX) + "\"";
+                    json += "}";
+                    
+                    request->send(200, "application/json", json);
+                    Serial.println("Camera status served successfully");
+                });
+
+                // Camera live feed endpoint - serves single frame for polling-based updates
+                server.on("/stream", HTTP_GET, [](AsyncWebServerRequest *request){
+                    Serial.println("=== CAMERA STREAM REQUEST ===");
+                    Serial.printf("Camera initialized: %s\n", cameraInitialized ? "YES" : "NO");
+                    
+                    if (!cameraInitialized) {
+                        Serial.println("ERROR: Camera not initialized, sending 503");
+                        request->send(503, "text/plain", "Camera not available - not initialized");
+                        return;
+                    }
+                    
+                    Serial.println("DEBUG: Attempting to capture frame...");
+                    // Capture single frame for live feed
+                    camera_fb_t * fb = esp_camera_fb_get();
+                    if (!fb) {
+                        Serial.println("ERROR: esp_camera_fb_get() returned NULL");
+                        request->send(500, "text/plain", "Camera capture failed");
+                        return;
+                    }
+                    
+                    Serial.printf("SUCCESS: Captured frame - %dx%d, %u bytes, format: %d\n", 
+                                 fb->width, fb->height, fb->len, fb->format);
+                    
+                    // Send JPEG frame with appropriate headers for live feed
+                    AsyncWebServerResponse *response = request->beginResponse_P(200, "image/jpeg", fb->buf, fb->len);
+                    response->addHeader("Content-Disposition", "inline; filename=stream.jpg");
+                    response->addHeader("Access-Control-Allow-Origin", "*");
+                    response->addHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+                    response->addHeader("Pragma", "no-cache");
+                    response->addHeader("Expires", "0");
+                    request->send(response);
+                    
+                    esp_camera_fb_return(fb);
+                    Serial.println("SUCCESS: Camera stream frame served successfully");
+                });
+
                 server.onNotFound([](AsyncWebServerRequest *request){ request->send(404, "text/plain", "Not found"); });
                 
                 // --- Handle Server-Sent Events ---
@@ -505,16 +739,32 @@ void setup() {
                 });
                 server.addHandler(&events);
 
+                Serial.println("DEBUG: Step R - Starting web server...");
+                esp_task_wdt_reset(); // Reset watchdog before server.begin()
                 server.begin();
+                Serial.println("DEBUG: Step S - Web server started successfully");
 
                 // --- Start mDNS ---
+                Serial.println("DEBUG: Step T - Starting mDNS...");
+                esp_task_wdt_reset(); // Reset watchdog before mDNS
+                preferences.begin("beecounter", true); // Open in read-only mode for device name
                 String deviceName = preferences.getString("deviceName", "beecounter");
+                preferences.end();
+                Serial.printf("DEBUG: Retrieved device name: %s\n", deviceName.c_str());
                 if (MDNS.begin(deviceName.c_str())) {
                     MDNS.addService("http", "tcp", 80);
+                    Serial.println("DEBUG: mDNS started successfully");
+                } else {
+                    Serial.println("DEBUG: mDNS failed to start");
                 }
 
                 // --- Start OTA Service ---
+                Serial.println("DEBUG: Step U - Setting up OTA...");
+                esp_task_wdt_reset(); // Reset watchdog before OTA setup
+                preferences.begin("beecounter", true); // Open in read-only mode for admin password
                 String ota_password_seed = preferences.getString("adminPass", "") + WiFi.macAddress();
+                preferences.end();
+                Serial.println("DEBUG: OTA password seed generated");
                 ArduinoOTA.setPassword(sha256(ota_password_seed).c_str());
 
                 ArduinoOTA.onStart([]() {
@@ -542,9 +792,14 @@ void setup() {
                     Serial.printf("ERROR[%u]: %s\n", error, errorMsg.c_str());
                 });
                 ArduinoOTA.begin();
+                Serial.println("DEBUG: Step V - OTA service started");
 
                 // --- Start NTP and set Timezone ---
+                Serial.println("DEBUG: Step W - Setting up NTP and timezone...");
+                esp_task_wdt_reset(); // Reset watchdog before NTP setup
+                preferences.begin("beecounter", true); // Open in read-only mode for timezone
                 String timezone = preferences.getString("timezone", "");
+                preferences.end();
                 if (timezone.length() > 0) {
                     Serial.printf("DEBUG: Setting timezone using saved value: %s\n", timezone.c_str());
                     configTzTime(timezone.c_str(), "pool.ntp.org");
@@ -557,17 +812,18 @@ void setup() {
                 Serial.println("DEBUG: configTzTime called.");
 
                 // Wait for NTP sync
+                Serial.println("DEBUG: Step X - Waiting for NTP synchronization...");
+                esp_task_wdt_reset(); // Reset watchdog before NTP sync wait
                 struct tm timeinfo_sync;
-                Serial.print("DEBUG: Waiting for NTP synchronization...");
-                if (!getLocalTime(&timeinfo_sync, 15000)) { // Wait up to 15 seconds
-                    Serial.println("\nDEBUG: Failed to obtain time.");
+                if (!getLocalTime(&timeinfo_sync, 10000)) { // Reduce to 10 seconds to avoid timeout
+                    Serial.println("DEBUG: Failed to obtain time within timeout.");
                 } else {
-                    Serial.println("\nDEBUG: NTP synchronization complete.");
+                    Serial.println("DEBUG: NTP synchronization complete.");
                     char timeBuff[30];
                     strftime(timeBuff, sizeof(timeBuff), "%A, %B %d %Y %H:%M:%S", &timeinfo_sync);
                     Serial.printf("DEBUG: The current time is: %s\n", timeBuff);
-                    Serial.println("IP address: " + WiFi.localIP().toString());
                 }
+                Serial.println("DEBUG: Step Y - Setup complete! IP address: " + WiFi.localIP().toString());
 
                 currentState = SERVER_STARTED;
                 break;
@@ -575,10 +831,15 @@ void setup() {
         }
         delay(100);
     }
+    
+    Serial.println("DEBUG: Step N.0.4 - WiFi connection wait loop completed");
+    Serial.printf("DEBUG: Final WiFi status: %d, currentState: %d\n", WiFi.status(), currentState);
+    
     if (currentState != SERVER_STARTED) {
+        Serial.println("DEBUG: Step N.0.5 - Server not started, connection failed");
         strip.setPixelColor(0, COLOR_FAILED);
         strip.show();
-        String errorMsg = "Failed to connect to " + String(ssid);
+        String errorMsg = "Failed to connect to " + ssid;
         logError(errorMsg);
         updateOLED("Connection Failed", "Check credentials.", "Rebooting...");
         delay(2000);
@@ -587,7 +848,11 @@ void setup() {
 }
 
 void loop() {
+    esp_task_wdt_reset(); // Reset watchdog at start of loop
+    
     ArduinoOTA.handle();
+    esp_task_wdt_reset(); // Reset after OTA handle
+    
     // --- Wi-Fi Reconnection Logic ---
     if (WiFi.status() != WL_CONNECTED && currentState != CONFIG_MODE) {
         currentState = WIFI_CONNECTING;
@@ -601,6 +866,7 @@ void loop() {
 
         unsigned long startTime = millis();
         while (WiFi.status() != WL_CONNECTED && (millis() - startTime < 30000)) {
+            esp_task_wdt_reset(); // Reset watchdog during reconnection
             delay(500);
             Serial.print(".");
         }
@@ -762,6 +1028,8 @@ void loop() {
         
         lastSerialPrintMillis = millis();
     }
+    
+    esp_task_wdt_reset(); // Reset watchdog at end of loop
 }
 
 // --- Configuration Mode Handlers ---
@@ -1003,8 +1271,9 @@ void handleMainPage(AsyncWebServerRequest *request) {
 
     String body = R"rawliteral(
         <div class='card' style='padding: 0; text-align: center;'>
-            <div id='camera-feed' style='width: 100%; height: 480px; background-color: #000; color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 8px 8px 0 0;'>
-                <p>Camera feed not available.</p>
+            <div id='camera-feed' style='width: 100%; height: 480px; background-color: #000; color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 8px 8px 0 0; position: relative;'>
+                <img id='camera-stream' src='/stream' style='max-width: 100%; max-height: 100%; object-fit: contain; display: none;' onerror='showCameraError()' onload='showCameraStream()' />
+                <p id='camera-error' style='margin: 0;'>Loading camera feed...</p>
             </div>
         </div>
         <div class='card' style='margin-top: 2rem;'>
@@ -1031,6 +1300,39 @@ void handleMainPage(AsyncWebServerRequest *request) {
             <button onclick='saveCameraSettings()'>Save Settings</button>
         </div>
         <script>
+            let refreshInterval;
+            
+            function showCameraStream() {
+                document.getElementById('camera-stream').style.display = 'block';
+                document.getElementById('camera-error').style.display = 'none';
+                startAutoRefresh();
+            }
+            
+            function showCameraError() {
+                document.getElementById('camera-stream').style.display = 'none';
+                document.getElementById('camera-error').style.display = 'block';
+                document.getElementById('camera-error').textContent = 'Camera feed not available.';
+                stopAutoRefresh();
+            }
+            
+            function refreshCamera() {
+                const img = document.getElementById('camera-stream');
+                const timestamp = new Date().getTime();
+                img.src = '/stream?t=' + timestamp;
+            }
+            
+            function startAutoRefresh() {
+                stopAutoRefresh();
+                refreshInterval = setInterval(refreshCamera, 500); // Refresh every 500ms
+            }
+            
+            function stopAutoRefresh() {
+                if (refreshInterval) {
+                    clearInterval(refreshInterval);
+                    refreshInterval = null;
+                }
+            }
+            
             function saveCameraSettings() {
                 const resolution = document.getElementById('resolution').value;
                 const quality = document.getElementById('quality').value;
@@ -1046,6 +1348,9 @@ void handleMainPage(AsyncWebServerRequest *request) {
                     }
                 });
             }
+            
+            // Clean up interval when page is unloaded
+            window.addEventListener('beforeunload', stopAutoRefresh);
         </script>
     )rawliteral";
     request->send(200, "text/html", getPageTemplate("Monitor", body, true));
@@ -1284,14 +1589,40 @@ void handleEdgeImpulseUpload(AsyncWebServerRequest *request) {
 }
 
 void handleSetCameraSettings(AsyncWebServerRequest *request) {
+    if (!cameraInitialized) {
+        request->send(503, "text/plain", "Camera not available");
+        return;
+    }
+    
     if (request->hasParam("resolution", true) && request->hasParam("quality", true)) {
         String resolution = request->getParam("resolution", true)->value();
         int quality = request->getParam("quality", true)->value().toInt();
 
+        // Save to preferences
         preferences.begin("beecounter", false);
         preferences.putString("cam_res", resolution);
         preferences.putInt("cam_qlty", quality);
         preferences.end();
+
+        // Apply settings in real-time
+        sensor_t *s = esp_camera_sensor_get();
+        if (s) {
+            // Apply quality setting
+            s->set_quality(s, quality);
+            
+            // Apply resolution setting
+            framesize_t framesize = FRAMESIZE_VGA; // default
+            if (resolution == "UXGA") framesize = FRAMESIZE_UXGA;
+            else if (resolution == "SXGA") framesize = FRAMESIZE_SXGA;
+            else if (resolution == "XGA") framesize = FRAMESIZE_XGA;
+            else if (resolution == "SVGA") framesize = FRAMESIZE_SVGA;
+            else if (resolution == "VGA") framesize = FRAMESIZE_VGA;
+            else if (resolution == "CIF") framesize = FRAMESIZE_CIF;
+            else if (resolution == "QVGA") framesize = FRAMESIZE_QVGA;
+            
+            s->set_framesize(s, framesize);
+            Serial.printf("Camera settings updated: Resolution=%s, Quality=%d\n", resolution.c_str(), quality);
+        }
 
         request->send(200, "text/plain", "OK");
     } else {
@@ -1540,7 +1871,7 @@ void handleAdminPage(AsyncWebServerRequest *request) {
                   "</div>" +
                   "<div class='card' style='flex: 1;'>" +
                   "<h3>System</h3>" +
-                  "<p>The currently set timezone is: <strong>" + currentTz + "</strong></p>" +
+                  "<p>The currently set timezone is: <strong>" + getReadableTimezone(currentTz) + "</strong></p>" +
                   "<form action='/admin/find-timezone' method='POST' style='margin-bottom:1rem;'>" +
                   "<button type='submit'>Auto-Detect Timezone</button>" +
                   "</form>" +

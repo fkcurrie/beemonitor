@@ -3,17 +3,50 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [0.12.0] - 2025-08-28
+## [0.12.0] - 2025-09-07
 
 ### Added
-- **Periodic Status Logging:** The device now prints its system name, Wi-Fi SSID, and IP address to the serial console every 30 seconds for easier monitoring.
+- **Complete Camera Integration:** Successfully integrated OV3660 camera from esp32camsd project into BeeCounter system
+  - Live camera feed with auto-refresh (500ms interval) on Monitor page
+  - Camera capture endpoint (`/capture`) for single photo capture
+  - Camera stream endpoint (`/stream`) for live JPEG frames
+  - Camera status endpoint (`/status`) with detailed sensor information
+- **Real-time Camera Controls:** Resolution and JPEG quality settings now apply immediately without device restart
+  - Support for UXGA, SXGA, XGA, SVGA, VGA, CIF, QVGA resolutions
+  - JPEG quality adjustment from 10-63
+  - Real-time parameter validation and error handling
+- **Hardware Configuration Updates:**
+  - Updated from ESP32-S3-DevKitC-1 to Freenove ESP32-S3-WROOM Camera Board (FNK0085)
+  - Configured for OV3660 camera sensor with DVP interface
+  - PSRAM detection and optimization (8MB PSRAM support)
+  - Proper camera pin mapping via ESP32S3_EYE configuration
+- **User Interface Improvements:**
+  - Fixed all navigation tabs (Train, Observability, Administer) - now fully functional
+  - Human-readable timezone display (e.g., "Eastern Time (US & Canada)" instead of "EST5EDT,M3.2.0,M11.1.0")
+  - Comprehensive camera feed error handling and status messages
+- **System Stability:**
+  - Disabled brownout detector to prevent camera initialization timeouts
+  - Extended watchdog timeout (30 seconds) during complex operations
+  - Strategic watchdog resets throughout setup process
+  - Resolved all boot loop and hanging issues
 
 ### Changed
-- **Troubleshooting:** The firmware has been temporarily modified to bypass the Wi-Fi configuration portal and connect directly to a hardcoded SSID and password for debugging purposes.
-- **Troubleshooting:** The camera initialization is now temporarily disabled to prevent boot loops caused by a suspected hardware issue. This allows the web server and other functions to run.
+- **Hardware Platform:** Migrated from esp32-s3-devkitc-1 to freenove_esp32_s3_wroom board configuration
+- **Camera Architecture:** Replaced placeholder camera functionality with full esp32camsd integration
+- **Development Workflow:** Removed debug-only hardcoded Wi-Fi credentials, restored normal configuration flow
 
 ### Fixed
-- **Filesystem Corruption:** Resolved a `Failed to mount LittleFS` error by using the `uploadfs` command to correctly provision the filesystem after a full flash erase.
+- **Watchdog Timeouts:** Resolved persistent 20-second timeout issues during camera initialization
+- **Missing Navigation:** All web interface tabs now properly route to their respective pages
+- **Camera Initialization:** Fixed camera sensor detection and configuration for OV3660
+- **PSRAM Integration:** Proper PSRAM detection and buffer allocation for camera operations
+- **Timezone Display:** Fixed confusing POSIX format display with human-readable timezone names
+
+### Technical Details
+- Camera sensor: OV3660 (PID: 0x3660) via parallel DVP interface
+- PSRAM: 8MB detection and utilization for camera buffers
+- Build system: Updated dependencies and board configurations
+- Web endpoints: `/stream`, `/capture`, `/status` fully operational
 
 ## [0.11.0] - 2025-08-28
 

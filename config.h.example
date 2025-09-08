@@ -1,0 +1,15 @@
+// Example configuration file
+// Copy this file to config.h and update with your actual credentials
+// config.h is excluded from git via .gitignore
+
+#ifndef CONFIG_H
+#define CONFIG_H
+
+// WiFi credentials for development/testing
+#define WIFI_SSID "YOUR_WIFI_SSID"
+#define WIFI_PASSWORD "YOUR_WIFI_PASSWORD"
+
+// Enable debug WiFi connection (bypasses normal config flow)
+// #define DEBUG_WIFI_ENABLED
+
+#endif // CONFIG_H

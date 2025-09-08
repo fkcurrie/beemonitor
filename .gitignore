@@ -1,8 +1,39 @@
-.pio
+# PlatformIO build files
+.pio/
 /include/version.h
 
 # Sensitive Files
 edgeimpulse.key
 data/key.pem
 data/cert.pem
+config.h
+
+# AI Assistant Files (should not be committed)
+CLAUDE.md
+GEMINI.md
+.geminiignore
+
+# Log Files
+*.log
+serial_monitor.log
+pio_top.log
+pio_run_top.log
+top_analysis.log
+
+# Backup and Temporary Files
+*.bak
+*.tmp
+*~
+.bkpexclude
+.excludebackup
+
+# Version Backups
 src/main.cpp.v*
+
+# Downloaded Files
+master.zip*
+circuitpython.bin
+
+# Build artifacts
+build/
+dist/

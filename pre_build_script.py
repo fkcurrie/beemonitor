@@ -7,9 +7,10 @@ import re
 import subprocess
 from pathlib import Path
 from datetime import datetime
+import os
 
 # --- Configuration ---
-CHANGELOG_PATH = Path("data/CHANGELOG.md") # Note: Path has changed
+CHANGELOG_PATH = Path("data/CHANGELOG.md")
 OUTPUT_HEADER_PATH = Path("include/version.h")
 DEFAULT_VERSION = "0.0.0"
 
@@ -24,16 +25,15 @@ def get_shell_output(command):
         return "unknown"
 
 # --- Main Logic ---
+# PlatformIO injects environment variables, we can get the board info from there
+build_platform = os.environ.get('BOARD', 'unknown')
+hw_platform = get_shell_output("uname -i")
+
 version = DEFAULT_VERSION
 build_host = get_shell_output("hostname")
 build_os = get_shell_output("uname -a")
-build_platform = "unknown"
-try:
-    with open("/proc/device-tree/model", "r") as f:
-        build_platform = f.read().strip()
-except Exception:
-    pass # Ignore if the file doesn't exist
 build_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
 
 try:
     # --- Read version from CHANGELOG.md ---
@@ -59,6 +59,7 @@ header_content = f"""// This file is generated automatically by pre_build_script
 #define BUILD_HOST "{build_host}"
 #define BUILD_OS "{build_os}"
 #define BUILD_PLATFORM "{build_platform}"
+#define BUILD_HW_PLATFORM "{hw_platform}"
 #define BUILD_DATE "{build_date}"
 
 #endif // VERSION_H
@@ -73,6 +74,7 @@ try:
     print(f"  - BUILD_HOST:  {build_host}")
     print(f"  - BUILD_OS:    {build_os}")
     print(f"  - BUILD_PLATFORM: {build_platform}")
+    print(f"  - BUILD_HW_PLATFORM: {hw_platform}")
     print(f"  - BUILD_DATE:  {build_date}")
 
 except Exception as e:

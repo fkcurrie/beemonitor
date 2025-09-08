@@ -1,4 +1,36 @@
 
+## Recently Completed (v0.12.0 - 2025-09-07)
+
+### 🎥 Complete Camera Integration
+- [x] **OV3660 Camera Integration:** Successfully integrated camera from esp32camsd project into BeeCounter
+  - Live camera feed with 500ms auto-refresh on Monitor page
+  - Real-time camera stream via `/stream` endpoint
+  - Single photo capture via `/capture` endpoint  
+  - Camera sensor status via `/status` endpoint
+- [x] **Real-time Camera Controls:** Resolution and JPEG quality settings apply immediately without restart
+  - UXGA, SXGA, XGA, SVGA, VGA, CIF, QVGA resolution support
+  - JPEG quality adjustment (10-63)
+  - Parameter validation and error handling
+- [x] **Hardware Migration:** Updated from ESP32-S3-DevKitC-1 to Freenove ESP32-S3-WROOM Camera Board
+  - OV3660 sensor configuration with DVP interface
+  - 8MB PSRAM detection and utilization
+  - ESP32S3_EYE pin mapping integration
+
+### 🌐 User Interface Improvements  
+- [x] **Fixed Navigation Tabs:** All tabs (Train, Observability, Administer) now properly route and function
+- [x] **Human-readable Timezone Display:** Converts POSIX format to readable names (e.g., "Eastern Time (US & Canada)")
+- [x] **Camera Feed Error Handling:** Comprehensive status messages and graceful degradation
+
+### 🔧 System Stability
+- [x] **Resolved Watchdog Timeouts:** Fixed persistent 20-second timeout issues during camera initialization
+- [x] **Brownout Detector Disable:** Prevents camera initialization timeouts
+- [x] **Strategic Watchdog Management:** Extended timeouts and reset points throughout setup process
+- [x] **PSRAM Integration:** Proper detection and buffer allocation for camera operations
+
+---
+
+## Previous Completed Features
+
 - [x] **Fix Timezone Display and Persistence:** The time in the footer does not always reflect the correct timezone after being set, and the timezone setting does not persist across reboots. Investigate and ensure the system time is correctly updated, displayed, and saved to non-volatile storage.
 - [x] **Implement Monitor Page:** Design and build the UI to display real-time bee counting data.
 - [x] **Implement Train Page:** Create the interface for the machine learning/training component.
