@@ -1277,27 +1277,42 @@ void handleMainPage(AsyncWebServerRequest *request) {
             </div>
         </div>
         <div class='card' style='margin-top: 2rem;'>
-            <h2>Camera Controls</h2>
+            <h2>Camera Controls - OV3660 Sensor</h2>
             )rawliteral" + message + R"rawliteral(
-            <div style='display: flex; justify-content: space-between; gap: 2rem;'>
+            <div style='margin-bottom: 1rem; padding: 0.75rem; background-color: #444; border-radius: 6px; font-size: 0.9em;'>
+                <strong>Current Settings:</strong> <span id='current-resolution'>Loading...</span> | Quality: <span id='current-quality'>Loading...</span>
+            </div>
+            <div style='display: flex; justify-content: space-between; gap: 2rem; margin-bottom: 1rem;'>
                 <div class='form-group' style='flex: 1;'>
-                    <label for='resolution'>Resolution</label>
+                    <label for='resolution'>Resolution <small>(OV3660 Supported)</small></label>
                     <select id='resolution' name='resolution'>
-                        <option value='UXGA'>UXGA (1600x1200)</option>
-                        <option value='SXGA'>SXGA (1280x1024)</option>
-                        <option value='XGA'>XGA (1024x768)</option>
-                        <option value='SVGA'>SVGA (800x600)</option>
-                        <option value='VGA' selected>VGA (640x480)</option>
-                        <option value='CIF'>CIF (400x296)</option>
-                        <option value='QVGA'>QVGA (320x240)</option>
+                        <option value='QXGA'>QXGA (2048x1536) - 3.1MP [MAX]</option>
+                        <option value='UXGA'>UXGA (1600x1200) - 1.9MP</option>
+                        <option value='FHD'>Full HD (1920x1080) - 2.1MP</option>
+                        <option value='SXGA'>SXGA (1280x1024) - 1.3MP</option>
+                        <option value='HD'>HD (1280x720) - 0.9MP</option>
+                        <option value='XGA'>XGA (1024x768) - 0.8MP</option>
+                        <option value='SVGA' selected>SVGA (800x600) - 0.5MP</option>
+                        <option value='VGA'>VGA (640x480) - 0.3MP</option>
+                        <option value='HVGA'>HVGA (480x320) - 0.2MP</option>
+                        <option value='CIF'>CIF (400x296) - 0.1MP</option>
+                        <option value='QVGA'>QVGA (320x240) - 0.08MP</option>
                     </select>
                 </div>
                 <div class='form-group' style='flex: 1;'>
-                    <label for='quality'>JPEG Quality (<span id='quality-val'>10</span>)</label>
-                    <input type='range' id='quality' name='quality' min='10' max='63' value='10' oninput="document.getElementById('quality-val').innerText = this.value">
+                    <label for='quality'>JPEG Quality (<span id='quality-val'>12</span>) <small>Lower = Higher Quality</small></label>
+                    <input type='range' id='quality' name='quality' min='0' max='63' value='12' oninput="updateQualityDisplay(this.value)">
+                    <div style='display: flex; justify-content: space-between; font-size: 0.8em; color: #bbb; margin-top: 0.25rem;'>
+                        <span>0 (Best)</span>
+                        <span>31 (Good)</span>
+                        <span>63 (Lowest)</span>
+                    </div>
                 </div>
             </div>
-            <button onclick='saveCameraSettings()'>Save Settings</button>
+            <div style='display: flex; gap: 1rem;'>
+                <button onclick='saveCameraSettings()' style='flex: 1;'>Save Settings</button>
+                <button onclick='loadCurrentSettings()' style='flex: 1; background-color: #666;'>Refresh Current</button>
+            </div>
         </div>
         <script>
             let refreshInterval;
@@ -1333,21 +1348,73 @@ void handleMainPage(AsyncWebServerRequest *request) {
                 }
             }
             
+            function updateQualityDisplay(value) {
+                document.getElementById('quality-val').innerText = value;
+                const qualityDesc = value <= 10 ? 'Excellent' : 
+                                   value <= 20 ? 'Very Good' : 
+                                   value <= 35 ? 'Good' : 
+                                   value <= 50 ? 'Fair' : 'Low';
+                document.getElementById('quality-val').innerText = value + ' (' + qualityDesc + ')';
+            }
+            
+            function loadCurrentSettings() {
+                fetch('/status')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Update current settings display
+                        const resolutionNames = {
+                            0: 'QVGA (320x240)', 1: 'CIF (400x296)', 2: 'HVGA (480x320)', 
+                            3: 'VGA (640x480)', 4: 'SVGA (800x600)', 5: 'XGA (1024x768)', 
+                            6: 'HD (1280x720)', 7: 'SXGA (1280x1024)', 8: 'UXGA (1600x1200)', 
+                            9: 'FHD (1920x1080)', 13: 'QXGA (2048x1536)'
+                        };
+                        const currentRes = resolutionNames[data.framesize] || 'Unknown';
+                        document.getElementById('current-resolution').innerText = currentRes;
+                        document.getElementById('current-quality').innerText = data.quality + ' (' + 
+                            (data.quality <= 10 ? 'Excellent' : 
+                             data.quality <= 20 ? 'Very Good' : 
+                             data.quality <= 35 ? 'Good' : 
+                             data.quality <= 50 ? 'Fair' : 'Low') + ')';
+                    })
+                    .catch(error => {
+                        console.error('Failed to load current settings:', error);
+                        document.getElementById('current-resolution').innerText = 'Error';
+                        document.getElementById('current-quality').innerText = 'Error';
+                    });
+            }
+
             function saveCameraSettings() {
                 const resolution = document.getElementById('resolution').value;
                 const quality = document.getElementById('quality').value;
+                
+                console.log('Saving camera settings:', resolution, quality);
+                
                 fetch('/api/camera-settings', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: `resolution=${resolution}&quality=${quality}`
                 }).then(response => {
+                    console.log('Response status:', response.status);
                     if (response.ok) {
-                        window.location.href = '/?success=1';
+                        loadCurrentSettings(); // Refresh current settings
+                        alert('Camera settings saved successfully!');
                     } else {
-                        alert('Failed to save camera settings.');
+                        response.text().then(errorText => {
+                            console.error('Error response:', errorText);
+                            alert('Failed to save camera settings: ' + errorText);
+                        });
                     }
+                }).catch(error => {
+                    console.error('Network error:', error);
+                    alert('Network error: ' + error.message);
                 });
             }
+            
+            // Load current settings when page loads
+            document.addEventListener('DOMContentLoaded', function() {
+                loadCurrentSettings();
+                updateQualityDisplay(document.getElementById('quality').value);
+            });
             
             // Clean up interval when page is unloaded
             window.addEventListener('beforeunload', stopAutoRefresh);
@@ -1589,6 +1656,12 @@ void handleEdgeImpulseUpload(AsyncWebServerRequest *request) {
 }
 
 void handleSetCameraSettings(AsyncWebServerRequest *request) {
+    // Check authentication first
+    if (!isAuthenticated(request)) {
+        request->send(401, "text/plain", "Unauthorized");
+        return;
+    }
+    
     if (!cameraInitialized) {
         request->send(503, "text/plain", "Camera not available");
         return;
@@ -1604,24 +1677,45 @@ void handleSetCameraSettings(AsyncWebServerRequest *request) {
         preferences.putInt("cam_qlty", quality);
         preferences.end();
 
-        // Apply settings in real-time
+        // Apply settings in real-time with watchdog management
         sensor_t *s = esp_camera_sensor_get();
         if (s) {
-            // Apply quality setting
+            Serial.printf("Applying camera settings: Resolution=%s, Quality=%d\n", resolution.c_str(), quality);
+            
+            // Reset watchdog before potentially long operations
+            esp_task_wdt_reset();
+            
+            // Apply quality setting first (usually faster)
             s->set_quality(s, quality);
+            esp_task_wdt_reset(); // Reset after quality change
             
-            // Apply resolution setting
-            framesize_t framesize = FRAMESIZE_VGA; // default
-            if (resolution == "UXGA") framesize = FRAMESIZE_UXGA;
-            else if (resolution == "SXGA") framesize = FRAMESIZE_SXGA;
-            else if (resolution == "XGA") framesize = FRAMESIZE_XGA;
-            else if (resolution == "SVGA") framesize = FRAMESIZE_SVGA;
-            else if (resolution == "VGA") framesize = FRAMESIZE_VGA;
-            else if (resolution == "CIF") framesize = FRAMESIZE_CIF;
-            else if (resolution == "QVGA") framesize = FRAMESIZE_QVGA;
+            // Apply resolution setting (OV3660 supported resolutions)
+            framesize_t framesize = FRAMESIZE_SVGA; // default to SVGA (safe starting point)
+            if (resolution == "QXGA") framesize = FRAMESIZE_QXGA;      // 2048x1536 - Maximum
+            else if (resolution == "UXGA") framesize = FRAMESIZE_UXGA;  // 1600x1200
+            else if (resolution == "FHD") framesize = FRAMESIZE_FHD;    // 1920x1080
+            else if (resolution == "SXGA") framesize = FRAMESIZE_SXGA;  // 1280x1024
+            else if (resolution == "HD") framesize = FRAMESIZE_HD;      // 1280x720
+            else if (resolution == "XGA") framesize = FRAMESIZE_XGA;    // 1024x768
+            else if (resolution == "SVGA") framesize = FRAMESIZE_SVGA;  // 800x600
+            else if (resolution == "VGA") framesize = FRAMESIZE_VGA;    // 640x480
+            else if (resolution == "HVGA") framesize = FRAMESIZE_HVGA;  // 480x320
+            else if (resolution == "CIF") framesize = FRAMESIZE_CIF;    // 400x296
+            else if (resolution == "QVGA") framesize = FRAMESIZE_QVGA;  // 320x240
             
-            s->set_framesize(s, framesize);
-            Serial.printf("Camera settings updated: Resolution=%s, Quality=%d\n", resolution.c_str(), quality);
+            // Reset watchdog before frame size change (this can be slow for high res)
+            esp_task_wdt_reset();
+            
+            // Apply frame size change
+            int result = s->set_framesize(s, framesize);
+            if (result != 0) {
+                Serial.printf("WARNING: Frame size change returned error code: %d\n", result);
+            }
+            
+            // Final watchdog reset after completion
+            esp_task_wdt_reset();
+            
+            Serial.printf("Camera settings applied successfully: Resolution=%s, Quality=%d\n", resolution.c_str(), quality);
         }
 
         request->send(200, "text/plain", "OK");

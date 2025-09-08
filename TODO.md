@@ -1,7 +1,23 @@
 
-## Recently Completed (v0.12.0 - 2025-09-07)
+## Recently Completed (v0.12.1 - 2025-09-07)
 
-### 🎥 Complete Camera Integration
+### 🎥 Enhanced Camera Controls
+- [x] **OV3660-Specific Camera Controls UI:** Redesigned camera interface with sensor-specific optimizations
+  - Full resolution support up to QXGA (2048x1536 - 3.1MP) maximum
+  - Complete JPEG quality range (0-63) with descriptive quality ratings
+  - Real-time current settings display panel
+  - Megapixel ratings and aspect ratio information for each resolution
+  - "Refresh Current" button to reload active camera settings
+- [x] **Fixed Camera Settings Functionality:** Resolved non-functional save button
+  - Added missing authentication check to camera settings endpoint
+  - Enhanced error handling with console logging and detailed error messages
+  - JavaScript debugging improvements with network error handling
+- [x] **Watchdog Timeout Prevention:** Eliminated camera setting-induced reboots
+  - Strategic watchdog resets during camera reconfiguration operations
+  - Prevents async_tcp task timeouts during high-resolution changes
+  - Enhanced error reporting with camera operation result codes
+
+### 🎥 Complete Camera Integration (v0.12.0)
 - [x] **OV3660 Camera Integration:** Successfully integrated camera from esp32camsd project into BeeCounter
   - Live camera feed with 500ms auto-refresh on Monitor page
   - Real-time camera stream via `/stream` endpoint
@@ -9,7 +25,7 @@
   - Camera sensor status via `/status` endpoint
 - [x] **Real-time Camera Controls:** Resolution and JPEG quality settings apply immediately without restart
   - UXGA, SXGA, XGA, SVGA, VGA, CIF, QVGA resolution support
-  - JPEG quality adjustment (10-63)
+  - JPEG quality adjustment from 10-63
   - Parameter validation and error handling
 - [x] **Hardware Migration:** Updated from ESP32-S3-DevKitC-1 to Freenove ESP32-S3-WROOM Camera Board
   - OV3660 sensor configuration with DVP interface
@@ -22,9 +38,9 @@
 - [x] **Camera Feed Error Handling:** Comprehensive status messages and graceful degradation
 
 ### 🔧 System Stability
-- [x] **Resolved Watchdog Timeouts:** Fixed persistent 20-second timeout issues during camera initialization
+- [x] **Resolved Watchdog Timeouts:** Fixed persistent timeout issues during camera initialization and configuration
 - [x] **Brownout Detector Disable:** Prevents camera initialization timeouts
-- [x] **Strategic Watchdog Management:** Extended timeouts and reset points throughout setup process
+- [x] **Strategic Watchdog Management:** Extended timeouts and reset points throughout setup and operation
 - [x] **PSRAM Integration:** Proper detection and buffer allocation for camera operations
 
 ---

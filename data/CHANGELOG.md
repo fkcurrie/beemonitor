@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.12.1] - 2025-09-07
+
+### Added
+- **Enhanced Camera Controls UI:** Redesigned camera controls interface with OV3660-specific optimizations
+  - OV3660-only resolution options including maximum QXGA (2048x1536 - 3.1MP) support
+  - Full JPEG quality range (0-63) with quality descriptions (Excellent/Very Good/Good/Fair/Low)
+  - Current settings display panel showing active resolution and quality in real-time
+  - "Refresh Current" button to reload active camera settings
+  - Megapixel ratings for each resolution option
+  - Improved user guidance with "Lower = Higher Quality" labeling
+
+### Fixed
+- **Camera Settings Authentication:** Added missing authentication check to camera settings endpoint
+- **Watchdog Timeout Issues:** Added strategic watchdog resets during camera reconfiguration to prevent reboots
+- **Settings Save Functionality:** Fixed "Save Settings" button that was previously non-functional
+- **Error Handling:** Enhanced JavaScript error handling with console logging and detailed error messages
+
 ## [0.12.0] - 2025-09-07
 
 ### Added
